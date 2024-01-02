@@ -4,10 +4,12 @@ using UnityEngine;
 public class BulletStickyScript : MonoBehaviour
 {
     private Rigidbody rb;
+    private Material stickyMaterial;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        stickyMaterial = GetComponent<Material>();
     }
 
     
@@ -24,5 +26,6 @@ public class BulletStickyScript : MonoBehaviour
         FixedJoint joint = objectToStickTo.AddComponent<FixedJoint>();
         joint.connectedBody = rb;
         joint.enableCollision = false;
+        objectToStickTo.gameObject.GetComponent<Renderer>().material = stickyMaterial;
     }
 }
