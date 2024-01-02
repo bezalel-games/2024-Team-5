@@ -20,7 +20,7 @@ public class HadarGameManager : MonoBehaviour
 
     private void Start()
     {
-        activePlayer.GetComponent<PlayerMovment>().setMode(true);
+        activePlayer.GetComponent<PlayerMovment>().setActive(true);
     }
 
     private void Update()
@@ -44,11 +44,11 @@ public class HadarGameManager : MonoBehaviour
             
             if (player == activePlayer)
             {
-                playerMovement.setMode(true);
+                playerMovement.setActive(true);
             }
             else
             {
-                playerMovement.setMode(false);
+                playerMovement.setActive(false);
 
             }
         }
