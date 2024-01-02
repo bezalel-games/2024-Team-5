@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Gal.Scripts
 {
-    public class PlayerGal : MonoBehaviour
+    public class PlayerCollects : MonoBehaviour
     {
         private void OnCollisionEnter(Collision other)
         {
