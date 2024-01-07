@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class PlayerMovment : MonoBehaviour
 {
@@ -107,6 +106,8 @@ public class PlayerMovment : MonoBehaviour
     public void SetCanRun(bool canRun) { this._canRun = canRun;}
     
     public bool GetConnected() { return _connectedToOther;}
+    
+    public st
 
     #endregion
     
