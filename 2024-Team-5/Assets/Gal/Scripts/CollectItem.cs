@@ -34,6 +34,7 @@ namespace Gal.Scripts
             {
                 _currentObjectCollider.transform.parent = transform; // later on needs to be specified to the body part
                 // need to update properties
+                // this is a setter to the best option available, maybe need to be changed to a combination of all properties
                 playerMovement.SetByObject(_currentObjectCollider.gameObject.GetComponent<Gal.Scripts.LegObject>());
             }
         }
