@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovment : MonoBehaviour
@@ -8,7 +9,6 @@ public class PlayerMovment : MonoBehaviour
     [SerializeField] private float speed = 5.0f;
     [SerializeField] private float jumpForce = 10.0f;
     [SerializeField] private float flapForce = 5.0f;
-    [SerializeField] private float maxVelocity = 30f;
     [SerializeField] private float initialFlyFlapTime = 2f;
     [SerializeField] private bool _canJump;
     [SerializeField] private bool _canFly;
@@ -16,7 +16,6 @@ public class PlayerMovment : MonoBehaviour
     private float flyFlapTime = 2f;
     private float horizontalInput;
     private float verticalInput;
-    private Vector3 movedirection;
     private Vector3 connectionOffset;
     private bool _connectedToOther;
     
@@ -30,8 +29,7 @@ public class PlayerMovment : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
-        movedirection = new Vector3(horizontalInput , 0 ,verticalInput);
-
+        
         if (_canJump)
         {
             Jump();
@@ -68,16 +66,11 @@ public class PlayerMovment : MonoBehaviour
     private void FixedUpdate()
     {
         Run();
-        objRb.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     private void Run()
     {
-        objRb.AddForce(movedirection * speed);
-        objRb.velocity = objRb.velocity.magnitude < maxVelocity ? objRb.velocity : objRb.velocity.normalized * maxVelocity;
-        if (movedirection != Vector3.zero) return;
-        var newVel = new Vector3(0, objRb.velocity.y, 0);
-        objRb.velocity = newVel;
+        objRb.AddForce(new Vector3(horizontalInput, 0, verticalInput) * speed);
     }
 
 
