@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementGal : MonoBehaviour
 {
     [SerializeField] private float speed = 5f; // Adjust the speed as needed
     [SerializeField] private float jumpForce = 8f; // Adjust the jump force as needed

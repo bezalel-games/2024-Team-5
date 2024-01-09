@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Gal.Scripts
 {
-    public class LegsProperties : ScriptableObject
+    public class LegObject : MonoBehaviour
     {
         public float speed;
         public bool canJump;
