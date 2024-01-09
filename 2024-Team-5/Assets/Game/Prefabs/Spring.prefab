@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   canJump: 1
-  jumpForce: 8
+  jumpForce: 12
   spriteRenderer: {fileID: 9138353873723347206}
 --- !u!65 &-2782223706518129706
 BoxCollider:
