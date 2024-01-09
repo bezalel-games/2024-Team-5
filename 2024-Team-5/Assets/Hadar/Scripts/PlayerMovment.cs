@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMovment : MonoBehaviour
 {
     public IsGrounded isGrounded;
+    public Rigidbody objRb;
 
     [SerializeField] private float speed = 5.0f;
     [SerializeField] private float jumpForce = 10.0f;
@@ -11,16 +12,14 @@ public class PlayerMovment : MonoBehaviour
     [SerializeField] private float initialFlyFlapTime = 2f;
     [SerializeField] private bool _canJump;
     [SerializeField] private bool _canFly;
-    [SerializeField] private bool _canRun;
+    
     private float flyFlapTime = 2f;
     private float horizontalInput;
     private float verticalInput;
     private Vector3 movedirection;
-    public Rigidbody objRb;
-    
     private Vector3 connectionOffset;
     private bool _connectedToOther;
-    private GameObject connectedObj;
+    
     void Start()
     {
         objRb = GetComponent<Rigidbody>();
@@ -29,13 +28,6 @@ public class PlayerMovment : MonoBehaviour
 
     private void Update()
     {
-        if (_connectedToOther)
-        {
-            transform.position = connectedObj.transform.position + connectionOffset;
-
-        }
-    
-        
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         movedirection = new Vector3(horizontalInput , 0 ,verticalInput);
@@ -81,8 +73,6 @@ public class PlayerMovment : MonoBehaviour
 
     private void Run()
     {
-        speed = _canRun ? 20f : 2f;
-        maxVelocity = _canRun ? 10f : 5f;
         objRb.AddForce(movedirection * speed);
         objRb.velocity = objRb.velocity.magnitude < maxVelocity ? objRb.velocity : objRb.velocity.normalized * maxVelocity;
         if (movedirection != Vector3.zero) return;
@@ -101,13 +91,14 @@ public class PlayerMovment : MonoBehaviour
     
     public void SetCanJump(bool canJump) { this._canJump = canJump; }
     
-    public bool GetCanRun() { return _canRun; }
-    
-    public void SetCanRun(bool canRun) { this._canRun = canRun;}
-    
     public bool GetConnected() { return _connectedToOther;}
-    
-    public st
+
+    // public void setByObject(LegOject obj)
+    // {
+    //     this._canJump = obj.canJump;
+    //     this.speed = obj.speed;
+    //     this.jumpForce = obj.jumpForce;
+    // }
 
     #endregion
     
