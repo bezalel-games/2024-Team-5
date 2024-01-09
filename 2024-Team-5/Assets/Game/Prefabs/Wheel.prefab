@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3267946647322592433}
   - component: {fileID: -4113335154580981133}
   - component: {fileID: 4469806012283357648}
+  - component: {fileID: 3323097704598197359}
   m_Layer: 0
   m_Name: Wheel
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,6 +83,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 0.34378618}
   m_Center: {x: 0, y: 0, z: -0.0020692647}
+--- !u!114 &3323097704598197359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2651730172288799454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9baab6368bf11ff459489dfed4045d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 50
+  canJump: 0
+  jumpForce: 0
+  spriteRenderer: {fileID: 9138353873723347206}
 --- !u!1 &7504001545565028932
 GameObject:
   m_ObjectHideFlags: 0

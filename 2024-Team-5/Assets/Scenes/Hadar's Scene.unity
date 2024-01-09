@@ -185,9 +185,9 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
---- !u!54 &510149378 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 1498942232785739520, guid: d3a194120e206a44d8a90bd7156cc634,
+--- !u!212 &642800592 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2257837154123720076, guid: d3a194120e206a44d8a90bd7156cc634,
     type: 3}
   m_PrefabInstance: {fileID: 7289113857249415693}
   m_PrefabAsset: {fileID: 0}
@@ -276,24 +276,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &860119246 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2335771458920316580, guid: d3a194120e206a44d8a90bd7156cc634,
-    type: 3}
-  m_PrefabInstance: {fileID: 7289113857249415693}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &860119249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860119246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd4ec4896e23a1043aba7ac81266fc78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1020710450
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +368,12 @@ MonoBehaviour:
   wheel: {fileID: 2651730172288799454, guid: 6a4eca6b97a715842b1415dff2229d22, type: 3}
   spring: {fileID: 2651730172288799454, guid: 827f0ec578fb1c24285eb0edc19d9553, type: 3}
   hitPoints: 3
+--- !u!212 &1060897944 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6365169340048847578, guid: d3a194120e206a44d8a90bd7156cc634,
+    type: 3}
+  m_PrefabInstance: {fileID: 7289113857249415693}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1147502291
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,52 +1113,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1498942232785739520, guid: d3a194120e206a44d8a90bd7156cc634,
+    - target: {fileID: 1176760021187759193, guid: d3a194120e206a44d8a90bd7156cc634,
         type: 3}
-      propertyPath: m_Drag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1498942232785739520, guid: d3a194120e206a44d8a90bd7156cc634,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 1498942232785739520, guid: d3a194120e206a44d8a90bd7156cc634,
-        type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1498942232785739520, guid: d3a194120e206a44d8a90bd7156cc634,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
+      propertyPath: m_LocalPosition.x
+      value: -0.79
       objectReference: {fileID: 0}
     - target: {fileID: 2104459821733042995, guid: d3a194120e206a44d8a90bd7156cc634,
         type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4816892459698192592, guid: d3a194120e206a44d8a90bd7156cc634,
+    - target: {fileID: 5667743750282617926, guid: d3a194120e206a44d8a90bd7156cc634,
         type: 3}
-      propertyPath: objRb
+      propertyPath: spriteRenderer
       value: 
-      objectReference: {fileID: 510149378}
-    - target: {fileID: 4816892459698192592, guid: d3a194120e206a44d8a90bd7156cc634,
+      objectReference: {fileID: 1060897944}
+    - target: {fileID: 7050650302403652249, guid: d3a194120e206a44d8a90bd7156cc634,
         type: 3}
-      propertyPath: speed
-      value: 50
+      propertyPath: m_LocalPosition.x
+      value: 0.7
       objectReference: {fileID: 0}
-    - target: {fileID: 4816892459698192592, guid: d3a194120e206a44d8a90bd7156cc634,
+    - target: {fileID: 7588666198521624324, guid: d3a194120e206a44d8a90bd7156cc634,
         type: 3}
-      propertyPath: jumpForce
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6234282579010393081, guid: d3a194120e206a44d8a90bd7156cc634,
-        type: 3}
-      propertyPath: m_Material
+      propertyPath: spriteRenderer
       value: 
-      objectReference: {fileID: 13400000, guid: 6168265e72b97914498c4b24d4b79385,
-        type: 2}
+      objectReference: {fileID: 642800592}
     - target: {fileID: 7876009095232184098, guid: d3a194120e206a44d8a90bd7156cc634,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1221,29 +1188,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8133937090175337308, guid: d3a194120e206a44d8a90bd7156cc634,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8133937090175337308, guid: d3a194120e206a44d8a90bd7156cc634,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8133937090175337308, guid: d3a194120e206a44d8a90bd7156cc634,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2335771458920316580, guid: d3a194120e206a44d8a90bd7156cc634,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 860119249}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3a194120e206a44d8a90bd7156cc634, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

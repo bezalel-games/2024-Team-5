@@ -1,13 +1,8 @@
-using System;
 using Hadar.Scripts;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Gal.Scripts
-{
     public class CollectItem : MonoBehaviour
     {
-        [FormerlySerializedAs("playerMovment")]
         public PlayerMovement playerMovement;
 
         private Collider _currentObjectCollider;
@@ -22,7 +17,8 @@ namespace Gal.Scripts
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.gameObject.CompareTag("Collectible"))
+            if (_currentObjectCollider == null) return;
+            if (other.gameObject == _currentObjectCollider.gameObject)
             {
                 _currentObjectCollider = null;
             }
@@ -32,11 +28,11 @@ namespace Gal.Scripts
         {
             if (Input.GetKeyDown(KeyCode.T) && _currentObjectCollider != null)
             {
-                _currentObjectCollider.transform.parent = transform; // later on needs to be specified to the body part
+                // _currentObjectCollider.transform.parent = transform; // later on needs to be specified to the body part
                 // need to update properties
                 // this is a setter to the best option available, maybe need to be changed to a combination of all properties
-                playerMovement.SetByObject(_currentObjectCollider.gameObject.GetComponent<Gal.Scripts.LegObject>());
+                playerMovement.SetByObject(_currentObjectCollider.gameObject.GetComponent<LegObject>());
+                Destroy(_currentObjectCollider.gameObject);
             }
         }
     }
-}

@@ -9,18 +9,21 @@ namespace Hadar.Scripts
         public Rigidbody objRb;
 
         [SerializeField] private float speed = 5.0f;
+        [SerializeField] private float defaultSpeed = 30f;
         [SerializeField] private float jumpForce = 10.0f;
         [SerializeField] private float flapForce = 5.0f;
         [SerializeField] private float initialFlyFlapTime = 2f;
         [SerializeField] private bool _canJump;
         [SerializeField] private bool _canFly;
-    
+        [SerializeField] private LegObject rightLeg;
+        [SerializeField] private LegObject leftLeg;
         private float flyFlapTime = 2f;
         private float horizontalInput;
         private float verticalInput;
         private Vector3 connectionOffset;
         private bool _connectedToOther;
-    
+        private int legSwitch;
+        
         void Start()
         {
             objRb = GetComponent<Rigidbody>();
@@ -88,11 +91,28 @@ namespace Hadar.Scripts
     
         public bool GetConnected() { return _connectedToOther;}
 
-        public void SetByObject(Gal.Scripts.LegObject obj)
+        public void SetByObject(LegObject obj)
         {
-            this._canJump = obj.canJump || _canJump; // If one object can jump, the player can jump
-            this.speed = obj.speed > speed ? obj.speed : speed;
-            this.jumpForce = obj.jumpForce > jumpForce? obj.jumpForce : jumpForce;
+            if (legSwitch == 0)
+            {
+                rightLeg.spriteRenderer.sprite = obj.spriteRenderer.sprite;
+                rightLeg.speed = obj.speed;
+                rightLeg.canJump = obj.canJump;
+                rightLeg.jumpForce = obj.jumpForce;
+                
+            }
+            else
+            {
+                leftLeg.spriteRenderer.sprite = obj.spriteRenderer.sprite;
+                leftLeg.speed = obj.speed;
+                leftLeg.canJump = obj.canJump;
+                leftLeg.jumpForce = obj.jumpForce;
+                
+            }
+            legSwitch = 1 - legSwitch;
+            _canJump = leftLeg.canJump || rightLeg.canJump; // If one object can jump, the player can jump
+            speed = defaultSpeed + leftLeg.speed + rightLeg.speed;
+            jumpForce = leftLeg.jumpForce + rightLeg.jumpForce;
         }
 
         #endregion

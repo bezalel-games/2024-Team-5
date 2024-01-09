@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 3267946647322592433}
   - component: {fileID: -4113335154580981133}
   - component: {fileID: 6797350380089298662}
+  - component: {fileID: -6851237152481044233}
+  - component: {fileID: -2782223706518129706}
   m_Layer: 0
   m_Name: Spring
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,6 +79,43 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.7424833, z: 0.57436013}
+  m_Center: {x: 0, y: 0.12046844, z: 0.019651175}
+--- !u!114 &-6851237152481044233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2651730172288799454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9baab6368bf11ff459489dfed4045d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
+  canJump: 1
+  jumpForce: 8
+  spriteRenderer: {fileID: 9138353873723347206}
+--- !u!65 &-2782223706518129706
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2651730172288799454}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
