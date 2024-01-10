@@ -1,17 +1,10 @@
 using Gal.Scripts;
 using UnityEngine;
 
-namespace Hadar.Scripts
-{
     public class PlayerMovement : MonoBehaviour
     {
         public IsGrounded isGrounded;
         public Rigidbody objRb;
-
-        public enum BodyParts
-        {
-            Leg,Hand,Back
-        }
         
         [SerializeField] private float speed = 5.0f;
         [SerializeField] private float defaultSpeed = 30f;
@@ -56,7 +49,7 @@ namespace Hadar.Scripts
 
         private void Fly()
         {
-            if (Input.GetKeyDown(KeyCode.L))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 // Add upward force for flying
                 objRb.velocity = new Vector3(objRb.velocity.x, objRb.velocity.y + flapForce, objRb.velocity.z);
@@ -79,7 +72,8 @@ namespace Hadar.Scripts
 
         private void Run()
         {
-            Vector3 desiredVelocity = new Vector3(horizontalInput * speed * Time.fixedDeltaTime, objRb.velocity.y, verticalInput * speed * Time.fixedDeltaTime);
+            Vector3 desiredVelocity = new Vector3(horizontalInput * speed * Time.fixedDeltaTime, objRb.velocity.y,
+                verticalInput * speed * Time.fixedDeltaTime);
             Vector3 velocityChange = desiredVelocity - objRb.velocity;
             velocityChange.x = Mathf.Clamp(velocityChange.x, -speed, speed);
             velocityChange.z = Mathf.Clamp(velocityChange.z, -speed, speed);
@@ -102,12 +96,12 @@ namespace Hadar.Scripts
     
         public bool GetConnected() { return _connectedToOther;}
 
-        public void SetByObject(BodyPartObject obj,BodyParts part)
+        public void SetByObject(BodyPartObject obj)
         {
 
-            if (part == BodyParts.Leg)
+            if (obj.bodyType == BodyPartObject.BodyType.Leg)
             {
-                LegObject leg = (LegObject)obj;
+                var leg = (LegObject)obj;
                 if (legSwitch == 0)
                 {
                     rightLeg.spriteRenderer.sprite = leg.spriteRenderer.sprite;
@@ -129,9 +123,11 @@ namespace Hadar.Scripts
                 speed = defaultSpeed + leftLeg.speed + rightLeg.speed;
                 jumpForce = leftLeg.jumpForce + rightLeg.jumpForce;
             }
-            else if (part == BodyParts.Back)
+            
+            else if (obj.bodyType == BodyPartObject.BodyType.Back)
             {
-                BackObject back = (BackObject)obj;
+                Debug.Log("back");
+                var back = (BackObject)obj;
                 _canFly = back.canFly;
                 playerBack.spriteRenderer.sprite = back.spriteRenderer.sprite;
             }
@@ -143,4 +139,4 @@ namespace Hadar.Scripts
     
     
     }
-}
+

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 public class LegObject : BodyPartObject
 {
@@ -5,5 +6,10 @@ public class LegObject : BodyPartObject
     public bool canJump;
     public float jumpForce;
     public SpriteRenderer spriteRenderer;
+
+    private void Awake()
+    {
+        bodyType = BodyType.Leg;
+    }
 }
 

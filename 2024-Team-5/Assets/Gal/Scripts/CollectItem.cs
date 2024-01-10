@@ -1,4 +1,3 @@
-using Hadar.Scripts;
 using UnityEngine;
 
     public class CollectItem : MonoBehaviour
@@ -26,22 +25,14 @@ using UnityEngine;
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.T) && _currentObjectCollider != null)
+            if (!Input.GetKeyDown(KeyCode.T) || _currentObjectCollider == null) return;
+            var bodyPartObject = _currentObjectCollider.gameObject.GetComponent<BodyPartObject>();
+            if (bodyPartObject != null)
             {
-                // _currentObjectCollider.transform.parent = transform; // later on needs to be specified to the body part
-                // need to update properties
-                // this is a setter to the best option available, maybe need to be changed to a combination of all properties
-                if (_currentObjectCollider.gameObject.GetComponent<LegObject>())
-                {
-                    print("collect leg");
-                    playerMovement.SetByObject(_currentObjectCollider.gameObject.GetComponent<LegObject>(), PlayerMovement.BodyParts.Leg);
-                }
-                else if (_currentObjectCollider.gameObject.GetComponent<BackObject>() != null)
-                {
-                    
-                    playerMovement.SetByObject(_currentObjectCollider.gameObject.GetComponent<BackObject>(), PlayerMovement.BodyParts.Back);
-                }
-                Destroy(_currentObjectCollider.gameObject);
+                Debug.Log("collected");
+                playerMovement.SetByObject(bodyPartObject);
             }
+            
+            Destroy(_currentObjectCollider.gameObject);
         }
     }
