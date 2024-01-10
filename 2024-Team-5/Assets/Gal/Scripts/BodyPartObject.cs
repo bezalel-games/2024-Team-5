@@ -1,11 +1,15 @@
 using UnityEngine;
-public class BodyPartObject : MonoBehaviour
+
+namespace Gal.Scripts
 {
-    public enum BodyType
+    public class BodyPartObject : MonoBehaviour
     {
-        Leg,Hand,Back
-    }
+        public enum BodyType
+        {
+            Leg,Hand,Back
+        }
     
-    public BodyType bodyType;
+        public BodyType bodyType;
+    }
 }
 

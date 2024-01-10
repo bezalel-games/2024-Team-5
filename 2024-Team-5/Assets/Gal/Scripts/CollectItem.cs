@@ -1,5 +1,7 @@
 using UnityEngine;
 
+namespace Gal.Scripts
+{
     public class CollectItem : MonoBehaviour
     {
         public PlayerMovement playerMovement;
@@ -36,3 +38,4 @@ using UnityEngine;
             Destroy(_currentObjectCollider.gameObject);
         }
     }
+}

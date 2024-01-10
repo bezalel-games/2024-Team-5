@@ -1,13 +1,16 @@
 using UnityEngine;
 
-public class BackObject : BodyPartObject
+namespace Gal.Scripts
 {
-    public bool canFly;
-    public SpriteRenderer spriteRenderer;
-
-    private void Awake()
+    public class BackObject : BodyPartObject
     {
-        bodyType = BodyType.Back;
+        public bool canFly;
+        public SpriteRenderer spriteRenderer;
+
+        private void Awake()
+        {
+            bodyType = BodyType.Back;
+        }
     }
 }
 
