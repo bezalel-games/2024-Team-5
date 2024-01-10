@@ -100,7 +100,7 @@ MonoBehaviour:
   speed: 0
   canJump: 0
   jumpForce: 0
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 2257837154123720076}
 --- !u!1 &2104459821733042995
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,8 +156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGrounded: {fileID: 7568478389065682675}
   objRb: {fileID: 1498942232785739520}
-  speed: 40
-  defaultSpeed: 20
+  speed: 100
+  defaultSpeed: 50
   jumpForce: 0
   flapForce: 5
   initialFlyFlapTime: 2
@@ -165,7 +165,7 @@ MonoBehaviour:
   _canFly: 0
   rightLeg: {fileID: 5667743750282617926}
   leftLeg: {fileID: 7588666198521624324}
-  back: {fileID: 0}
+  playerBack: {fileID: 9050167476172586214}
 --- !u!54 &1498942232785739520
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -478,7 +478,7 @@ MonoBehaviour:
   speed: 0
   canJump: 0
   jumpForce: 0
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 6365169340048847578}
 --- !u!1 &7510582368529028295
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +537,7 @@ Transform:
   m_GameObject: {fileID: 8498474285402861001}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -586,6 +586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2560962049090674390}
   - component: {fileID: 7603316416225369838}
+  - component: {fileID: 9050167476172586214}
   m_Layer: 0
   m_Name: Back
   m_TagString: Untagged
@@ -602,7 +603,7 @@ Transform:
   m_GameObject: {fileID: 8610548770545768072}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -650,7 +651,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9326456, g: 1, b: 0.3150943, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -660,3 +661,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9050167476172586214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8610548770545768072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f18d1a8969e541c09d446ee9d7651f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  canJump: 0
+  jumpForce: 0
+  canFly: 0
+  spriteRenderer: {fileID: 7603316416225369838}

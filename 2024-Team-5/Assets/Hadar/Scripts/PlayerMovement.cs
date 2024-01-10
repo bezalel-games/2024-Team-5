@@ -40,7 +40,6 @@ namespace Hadar.Scripts
         {
             horizontalInput = Input.GetAxis("Horizontal");
             verticalInput = Input.GetAxis("Vertical");
-        
             if (_canJump)
             {
                 Jump();
@@ -59,7 +58,6 @@ namespace Hadar.Scripts
         {
             if (Input.GetKeyDown(KeyCode.L))
             {
-                Debug.Log("Fly space pressed");
                 // Add upward force for flying
                 objRb.velocity = new Vector3(objRb.velocity.x, objRb.velocity.y + flapForce, objRb.velocity.z);
             }
@@ -69,6 +67,7 @@ namespace Hadar.Scripts
         {
             if (Input.GetKeyDown(KeyCode.Space) && isGrounded.Grounded())
             {
+                print("Jump space pressed");
                 objRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             }
         }
@@ -80,8 +79,15 @@ namespace Hadar.Scripts
 
         private void Run()
         {
-            objRb.AddForce(new Vector3(horizontalInput, 0, verticalInput) * speed);
+            Vector3 desiredVelocity = new Vector3(horizontalInput * speed * Time.fixedDeltaTime, objRb.velocity.y, verticalInput * speed * Time.fixedDeltaTime);
+            Vector3 velocityChange = desiredVelocity - objRb.velocity;
+            velocityChange.x = Mathf.Clamp(velocityChange.x, -speed, speed);
+            velocityChange.z = Mathf.Clamp(velocityChange.z, -speed, speed);
+            velocityChange.y = 0;
+
+            objRb.AddForce(velocityChange, ForceMode.VelocityChange);
         }
+
 
 
         #region Setters and Getters

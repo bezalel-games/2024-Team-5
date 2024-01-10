@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
     public class IsGrounded : MonoBehaviour
@@ -11,7 +12,7 @@ using UnityEngine;
                 _grounded = true;
             }
         }
-        
+
         private void OnTriggerExit(Collider other)
         {
             if (other.gameObject.CompareTag("Ground"))

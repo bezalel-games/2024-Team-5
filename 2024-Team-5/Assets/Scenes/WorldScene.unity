@@ -249,6 +249,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2782223706518129706, guid: 827f0ec578fb1c24285eb0edc19d9553,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2471901467117944925, guid: 827f0ec578fb1c24285eb0edc19d9553,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -282,7 +287,7 @@ PrefabInstance:
     - target: {fileID: 3267946647322592433, guid: 827f0ec578fb1c24285eb0edc19d9553,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9
+      value: 0.915
       objectReference: {fileID: 0}
     - target: {fileID: 3267946647322592433, guid: 827f0ec578fb1c24285eb0edc19d9553,
         type: 3}
@@ -324,7 +329,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6797350380089298662, guid: 827f0ec578fb1c24285eb0edc19d9553,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6797350380089298662, guid: 827f0ec578fb1c24285eb0edc19d9553,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 6797350380089298662, guid: 827f0ec578fb1c24285eb0edc19d9553,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -2782223706518129706, guid: 827f0ec578fb1c24285eb0edc19d9553, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -354,9 +375,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4816892459698192592, guid: d3a194120e206a44d8a90bd7156cc634,
         type: 3}
+      propertyPath: speed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816892459698192592, guid: d3a194120e206a44d8a90bd7156cc634,
+        type: 3}
       propertyPath: playerBack
       value: 
       objectReference: {fileID: 1602456185}
+    - target: {fileID: 4816892459698192592, guid: d3a194120e206a44d8a90bd7156cc634,
+        type: 3}
+      propertyPath: defaultSpeed
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5667743750282617926, guid: d3a194120e206a44d8a90bd7156cc634,
         type: 3}
       propertyPath: spriteRenderer
@@ -740,7 +771,7 @@ GameObject:
   - component: {fileID: 1022975866}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1018,7 +1049,7 @@ GameObject:
   - component: {fileID: 1408327120}
   m_Layer: 0
   m_Name: tableSurface
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1312,6 +1343,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3323097704598197359, guid: 6a4eca6b97a715842b1415dff2229d22,
+        type: 3}
+      propertyPath: speed
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
