@@ -31,7 +31,16 @@ using UnityEngine;
                 // _currentObjectCollider.transform.parent = transform; // later on needs to be specified to the body part
                 // need to update properties
                 // this is a setter to the best option available, maybe need to be changed to a combination of all properties
-                playerMovement.SetByObject(_currentObjectCollider.gameObject.GetComponent<LegObject>());
+                if (_currentObjectCollider.gameObject.GetComponent<LegObject>())
+                {
+                    print("collect leg");
+                    playerMovement.SetByObject(_currentObjectCollider.gameObject.GetComponent<LegObject>(), PlayerMovement.BodyParts.Leg);
+                }
+                else if (_currentObjectCollider.gameObject.GetComponent<BackObject>() != null)
+                {
+                    
+                    playerMovement.SetByObject(_currentObjectCollider.gameObject.GetComponent<BackObject>(), PlayerMovement.BodyParts.Back);
+                }
                 Destroy(_currentObjectCollider.gameObject);
             }
         }

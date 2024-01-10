@@ -8,6 +8,11 @@ namespace Hadar.Scripts
         public IsGrounded isGrounded;
         public Rigidbody objRb;
 
+        public enum BodyParts
+        {
+            Leg,Hand,Back
+        }
+        
         [SerializeField] private float speed = 5.0f;
         [SerializeField] private float defaultSpeed = 30f;
         [SerializeField] private float jumpForce = 10.0f;
@@ -17,6 +22,7 @@ namespace Hadar.Scripts
         [SerializeField] private bool _canFly;
         [SerializeField] private LegObject rightLeg;
         [SerializeField] private LegObject leftLeg;
+        [SerializeField] private BackObject playerBack;
         private float flyFlapTime = 2f;
         private float horizontalInput;
         private float verticalInput;
@@ -46,17 +52,16 @@ namespace Hadar.Scripts
             }
         }
 
+        private float flapDuration = 0.5f; // Adjust this value for the duration of each flap
+        private float currentFlapTime = 0.0f;
+
         private void Fly()
         {
-            if (Input.GetKeyDown(KeyCode.Space) && flyFlapTime < 0)
+            if (Input.GetKeyDown(KeyCode.L))
             {
-                objRb.AddForce(Vector3.up * flapForce, ForceMode.Impulse);
-                flyFlapTime = initialFlyFlapTime;
-            }
-        
-            if (flyFlapTime >= 0)
-            {
-                flyFlapTime -= Time.deltaTime;
+                Debug.Log("Fly space pressed");
+                // Add upward force for flying
+                objRb.velocity = new Vector3(objRb.velocity.x, objRb.velocity.y + flapForce, objRb.velocity.z);
             }
         }
 
@@ -91,28 +96,41 @@ namespace Hadar.Scripts
     
         public bool GetConnected() { return _connectedToOther;}
 
-        public void SetByObject(LegObject obj)
+        public void SetByObject(BodyPartObject obj,BodyParts part)
         {
-            if (legSwitch == 0)
+
+            if (part == BodyParts.Leg)
             {
-                rightLeg.spriteRenderer.sprite = obj.spriteRenderer.sprite;
-                rightLeg.speed = obj.speed;
-                rightLeg.canJump = obj.canJump;
-                rightLeg.jumpForce = obj.jumpForce;
+                LegObject leg = (LegObject)obj;
+                if (legSwitch == 0)
+                {
+                    rightLeg.spriteRenderer.sprite = leg.spriteRenderer.sprite;
+                    rightLeg.speed = leg.speed;
+                    rightLeg.canJump = leg.canJump;
+                    rightLeg.jumpForce = leg.jumpForce;
                 
+                }
+                else
+                {
+                    leftLeg.spriteRenderer.sprite = leg.spriteRenderer.sprite;
+                    leftLeg.speed = leg.speed;
+                    leftLeg.canJump = leg.canJump;
+                    leftLeg.jumpForce = leg.jumpForce;
+                
+                }
+                legSwitch = 1 - legSwitch;
+                _canJump = leftLeg.canJump || rightLeg.canJump; // If one object can jump, the player can jump
+                speed = defaultSpeed + leftLeg.speed + rightLeg.speed;
+                jumpForce = leftLeg.jumpForce + rightLeg.jumpForce;
             }
-            else
+            else if (part == BodyParts.Back)
             {
-                leftLeg.spriteRenderer.sprite = obj.spriteRenderer.sprite;
-                leftLeg.speed = obj.speed;
-                leftLeg.canJump = obj.canJump;
-                leftLeg.jumpForce = obj.jumpForce;
-                
+                BackObject back = (BackObject)obj;
+                _canFly = back.canFly;
+                playerBack.spriteRenderer.sprite = back.spriteRenderer.sprite;
             }
-            legSwitch = 1 - legSwitch;
-            _canJump = leftLeg.canJump || rightLeg.canJump; // If one object can jump, the player can jump
-            speed = defaultSpeed + leftLeg.speed + rightLeg.speed;
-            jumpForce = leftLeg.jumpForce + rightLeg.jumpForce;
+            
+            
         }
 
         #endregion
