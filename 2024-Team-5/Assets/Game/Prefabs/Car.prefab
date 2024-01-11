@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3af3fc4b4254a5db04495a087ca2193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wheel: {fileID: 2651730172288799454, guid: 6a4eca6b97a715842b1415dff2229d22, type: 3}
+  wheel: {fileID: 2651730172288799454, guid: 870da0f2f7b06f44b8914b7fe41c4834, type: 3}
   spring: {fileID: 2651730172288799454, guid: 827f0ec578fb1c24285eb0edc19d9553, type: 3}
   hitPoints: 3
   renderer: {fileID: 1758763850622686466}
