@@ -102,7 +102,7 @@ using UnityEngine;
             if (obj.bodyType == BodyPartObject.BodyType.Leg)
             {
                 var leg = (LegObject)obj;
-                if (legSwitch == 0)
+                if (transform.position.x < obj.transform.position.x)
                 {
                     rightLeg.spriteRenderer.sprite = leg.spriteRenderer.sprite;
                     rightLeg.speed = leg.speed;

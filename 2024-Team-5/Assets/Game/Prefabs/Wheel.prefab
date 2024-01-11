@@ -96,7 +96,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyType: 0
+<<<<<<< HEAD
   speed: 600
+=======
+  speed: 500
+>>>>>>> de5f7c332be5be6c74964ed384082e0da2788120
   canJump: 0
   jumpForce: 0
   spriteRenderer: {fileID: 9138353873723347206}
