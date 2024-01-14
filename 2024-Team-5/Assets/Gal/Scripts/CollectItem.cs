@@ -32,7 +32,7 @@ namespace Gal.Scripts
             if (bodyPartObject != null)
             {
                 Debug.Log("collected");
-                playerMovement.SetByObject(bodyPartObject);
+                // playerMovement.SetByObject(bodyPartObject);
             }
             
             Destroy(_currentObjectCollider.gameObject);
