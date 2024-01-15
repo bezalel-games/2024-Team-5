@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -475,7 +475,6 @@ GameObject:
   m_Component:
   - component: {fileID: 510176477}
   - component: {fileID: 510176476}
-  - component: {fileID: 510176475}
   - component: {fileID: 510176474}
   - component: {fileID: 510176478}
   m_Layer: 0
@@ -529,14 +528,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &510176475
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 510176473}
-  m_Enabled: 1
 --- !u!20 &510176476
 Camera:
   m_ObjectHideFlags: 0
@@ -1376,6 +1367,7 @@ GameObject:
   - component: {fileID: 1657348592}
   - component: {fileID: 1657348590}
   - component: {fileID: 1657348591}
+  - component: {fileID: 1657348593}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1523,6 +1515,14 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8, y: 1.669719}
   m_EdgeRadius: 0
+--- !u!81 &1657348593
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657348585}
+  m_Enabled: 1
 --- !u!1 &1725446683
 GameObject:
   m_ObjectHideFlags: 0
