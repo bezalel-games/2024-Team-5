@@ -111,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
     }
     
     [ContextMenu("enable walking")]
-    private void EnableWalking()
+    public void EnableWalking()
     {
         headSpriteRenderer.transform.rotation = quaternion.identity;
         leg.SetActive(true);
