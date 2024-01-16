@@ -9,9 +9,9 @@ public class PickupsManager : MonoBehaviour
     [SerializeField] private Sprite goodEyeSprite;
     [SerializeField] private SpriteRenderer bodyRenderer;
     
-    private void Start()
+    private void Awake()
     {
-        Instance = this;
+        Instance = Instance == null ? this : Instance;
     }
 
     public void CollectEye()
