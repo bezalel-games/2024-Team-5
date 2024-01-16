@@ -24,12 +24,14 @@ public class PlayerMovement : MonoBehaviour
     private bool flipped;
     private bool _isOnlyHead = true;
     private static readonly int Jump = Animator.StringToHash("Jump");
-    private Vector2 legColSize;
+    private Vector2 motorsSpeed;
+    private Vector2 motorsShake;
+    private bool shakin;
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _inputAction = GetComponent<PlayerInput>();
-        legColSize = new Vector2(1.8f,4.5f);
+        motorsShake = new Vector2(leftMotorSpeed, rightMotorSpeed);
     }
     
     private void FixedUpdate()
@@ -52,7 +54,8 @@ public class PlayerMovement : MonoBehaviour
         
         if (!_isOnlyHead) return;
         // var dir = Math.Abs(_rb.velocity.x) > .5f || _movement.x != 0 ? _rb.velocity.x : 0;
-        headSpriteRenderer.transform.Rotate(Vector3.forward * (rotateSpeed * Math.Abs(_movement.x)),
+        headSpriteRenderer.transform.Rotate(Vector3.forward * (rotateSpeed *
+                (Math.Abs(_movement.x) + Math.Abs(_movement.y) + Math.Abs(_rb.velocity.x) + Math.Abs(_rb.velocity.y))),
             Space.Self);
     }
 
@@ -74,6 +77,21 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        shakin = true;
+        motorsSpeed = motorsShake;
+        StartCoroutine(StopShake());
+    }
+
+    private IEnumerator StopShake()
+    {
+        yield return new WaitForSeconds(0.5f);
+        shakin = false;
+        motorsSpeed = Vector2.zero;
+    }
+
+
     private void OnMove(InputValue value)
     {
         _movement = value.Get<Vector2>();
@@ -83,14 +101,14 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
         
-        Vector2 motorsSpeed;
-        if (_movement == Vector2.zero || Math.Sign(_movement.x) == Math.Sign(_rb.velocity.x))
+        
+        if ((_movement == Vector2.zero || Math.Sign(_movement.x) == Math.Sign(_rb.velocity.x)) && !shakin)
         {
             motorsSpeed = Vector2.zero;
         }
         else
         {
-            motorsSpeed = new Vector2(leftMotorSpeed, rightMotorSpeed);
+            motorsSpeed = motorsShake;
         }
         Gamepad.current?.SetMotorSpeeds(motorsSpeed[0],motorsSpeed[1]);
 
@@ -118,10 +136,7 @@ public class PlayerMovement : MonoBehaviour
         _isOnlyHead = false;
         _rb.drag += 5;
         speed += 15;
-        GetComponent<BoxCollider2D>().size = legColSize;
-        GetComponent<BoxCollider2D>().offset -= new Vector2(0, 1.5f);
     }
-    
 }
 
 #region Previous Code

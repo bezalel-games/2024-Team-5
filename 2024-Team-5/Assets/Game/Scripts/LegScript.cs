@@ -8,6 +8,7 @@ public class LegScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.GetComponent<PlayerMovement>().EnableWalking();
+            ObstaclesManager.Instance.DisableObstacles();
             Destroy(gameObject);
         }
     }
