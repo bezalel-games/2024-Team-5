@@ -9,7 +9,11 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private GameObject[] gameObjectsAudioSources;
     [SerializeField] private AudioSource gameWhiteNoiseAudioSource;
     [SerializeField] private float soundVolumeEpsilon;
-
+    public static SoundManager instance;
+    void Awake() {
+        instance = this;
+    }
+    
     private void Start()
     {
         DisableSound();

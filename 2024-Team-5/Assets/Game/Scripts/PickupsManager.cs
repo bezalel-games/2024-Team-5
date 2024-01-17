@@ -8,6 +8,7 @@ public class PickupsManager : MonoBehaviour
     public static PickupsManager Instance { get; private set; }
     [SerializeField] private Sprite goodEyeSprite;
     [SerializeField] private SpriteRenderer bodyRenderer;
+    [SerializeField] private GameObject ear;
     
     private void Awake()
     {
@@ -17,5 +18,10 @@ public class PickupsManager : MonoBehaviour
     public void CollectEye()
     {
         bodyRenderer.sprite = goodEyeSprite;
+    }
+
+    public void CollectEar()
+    {
+        ear.SetActive(true);
     }
 }
