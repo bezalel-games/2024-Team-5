@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private GameObject leg;
 
+    public static PlayerMovement instance;
     private Rigidbody2D _rb;
     private Vector2 _movement;
     private PlayerInput _inputAction;
@@ -27,6 +28,13 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 motorsSpeed;
     private Vector2 motorsShake;
     private bool shakin;
+    private bool withLeg = false;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -133,9 +141,15 @@ public class PlayerMovement : MonoBehaviour
     {
         headSpriteRenderer.transform.rotation = quaternion.identity;
         leg.SetActive(true);
+        withLeg = true;
         _isOnlyHead = false;
         _rb.drag += 5;
         speed += 15;
+    }
+
+    public bool GetLegStatus()
+    {
+        return withLeg;
     }
 }
 
