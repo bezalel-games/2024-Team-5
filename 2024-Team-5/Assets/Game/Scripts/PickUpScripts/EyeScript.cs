@@ -12,7 +12,8 @@ public class EyeScript : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
         // colorEffect.ColorfulEffect();
-        StartCoroutine(colorEffect.ChangeSaturationOverTime(colorChangeDuration));
+        StartCoroutine(colorEffect.ChangeSaturationOverTime(colorChangeDuration)); 
+        // can't destroy object until coroutine is finished
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
     }
