@@ -10289,7 +10289,7 @@ Transform:
   m_GameObject: {fileID: 1439518545}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -49.2, y: 21.4, z: 0}
+  m_LocalPosition: {x: -46.3, y: -11.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14600,6 +14600,8 @@ MonoBehaviour:
   playerRigidbody2D: {fileID: 1657348597}
   player: {fileID: 318929640}
   maxHoverSpeed: 5
+  hoverDepth: 5
+  hoverSpeed: 2
 --- !u!212 &2110499665
 SpriteRenderer:
   m_ObjectHideFlags: 0
