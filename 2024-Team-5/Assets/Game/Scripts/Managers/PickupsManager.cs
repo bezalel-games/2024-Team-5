@@ -10,6 +10,7 @@ public class PickupsManager : MonoBehaviour
     [SerializeField] private SpriteRenderer bodyRenderer;
     [SerializeField] private GameObject ear;
     [SerializeField] private GameObject light;
+    [SerializeField] private GameObject burner;
     
     private void Awake()
     {
@@ -29,5 +30,10 @@ public class PickupsManager : MonoBehaviour
     public void CollectLight()
     {
         light.SetActive(true);
+    }
+    
+    public void CollectBurner()
+    {
+        burner.SetActive(true);
     }
 }

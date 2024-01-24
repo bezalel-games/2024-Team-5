@@ -62,6 +62,10 @@ public class PlayerMovement : MonoBehaviour
         
         if (!_isOnlyHead) return;
         // var dir = Math.Abs(_rb.velocity.x) > .5f || _movement.x != 0 ? _rb.velocity.x : 0;
+        
+        // TODO : we need to change the is only head to be public somehow so other
+        // scripts can access it, like the burner script.
+        
         headSpriteRenderer.transform.Rotate(Vector3.forward * (rotateSpeed *
                 (Math.Abs(_movement.x) + Math.Abs(_movement.y) + Math.Abs(_rb.velocity.x) + Math.Abs(_rb.velocity.y))),
             Space.Self);
