@@ -4,9 +4,7 @@ using UnityEngine;
 public class PickupsManager : MonoBehaviour
 {
     public static PickupsManager Instance { get; private set; }
-    [SerializeField] private Sprite goodEyeSprite;
-    [SerializeField] private SpriteRenderer bodyRenderer;
-    [SerializeField] private GameObject ear;
+    [SerializeField] private GameObject antenaPickup;
     [SerializeField] private GameObject lightPickup;
     [SerializeField] private GameObject burner;
     
@@ -24,8 +22,8 @@ public class PickupsManager : MonoBehaviour
             case "Eye":
                 CollectEye();
                 break;
-            case "Ear":
-                CollectEar();
+            case "Arm":
+                // TODO: CollectArm();
                 break;
             case "Light":
                 CollectLight();
@@ -38,15 +36,10 @@ public class PickupsManager : MonoBehaviour
 
     private void CollectEye()
     {
-        bodyRenderer.sprite = goodEyeSprite;
+        antenaPickup.SetActive(true);
     }
 
-    public void CollectEar()
-    {
-        ear.SetActive(true);
-    }
-
-    public void CollectLight()
+    private void CollectLight()
     {
         lightPickup.SetActive(true);
     }

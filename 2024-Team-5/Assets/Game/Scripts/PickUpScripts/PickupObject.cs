@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class PickupObject : MonoBehaviour
 {
-    public float arcHeight = 1.0f;
-    public float arcFreq = 3f;
-    public float duration = 1.0f;
+    public float animMovementDuration = 1.0f;
     public Transform connectionPlace;
     public Transform rendererTransform;
     public Action OnFinisedAnimation;
@@ -20,10 +18,13 @@ public class PickupObject : MonoBehaviour
     }
     
 
+    /**
+     * Set by an animation event
+     */
     public virtual void ConnectToPlayer()
     {
         ResetPos();
-        StartCoroutine(MoveObject(transform, connectionPlace, duration));
+        StartCoroutine(MoveObject(transform, connectionPlace, animMovementDuration));
     }
     
     /**
@@ -46,8 +47,7 @@ public class PickupObject : MonoBehaviour
             // Interpolate the position between point A and point B
             float t = Mathf.Clamp01(elapsedTime / duration);
             Vector3 pos = Vector3.Lerp(pointA.position, pointB.position, t);
-            pos.y += arcHeight * Mathf.Sin(arcFreq * Mathf.Clamp01(t) * 2*Mathf.PI);
-            pointA.position = pos;
+            transform.position = pos;
             elapsedTime += Time.deltaTime;
             // Debug.Log(t);
             yield return null;

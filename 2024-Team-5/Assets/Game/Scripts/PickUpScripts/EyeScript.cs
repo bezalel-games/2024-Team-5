@@ -13,7 +13,6 @@ public class EyeScript : MonoBehaviour
 
     public void Pickup()
     {
-        // GetComponent<Animator>().SetTrigger(Connect);
         colorEffect.StartSaturationChange(colorChangeDuration);
     }
 }

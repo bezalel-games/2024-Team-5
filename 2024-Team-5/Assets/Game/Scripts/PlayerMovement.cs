@@ -78,14 +78,14 @@ public class PlayerMovement : MonoBehaviour
         if (flipped)
         {
             var localScale = renderer.transform.localScale;
-            localScale = new Vector3( 1, localScale.y, localScale.z);
+            localScale = new Vector3( -1, localScale.y, localScale.z);
             renderer.transform.localScale = localScale;
             flipped = false;
         }
         else
         {
             var localScale = renderer.transform.localScale;
-            localScale = new Vector3( -1, localScale.y, localScale.z);
+            localScale = new Vector3( 1, localScale.y, localScale.z);
             renderer.transform.localScale = localScale;
             flipped = true;
         }

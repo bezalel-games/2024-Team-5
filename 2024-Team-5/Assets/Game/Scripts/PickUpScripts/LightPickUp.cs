@@ -2,23 +2,35 @@ using UnityEngine;
 
 public class LightPickUp :PickupObject
 {
-    private void OnTriggerStay2D(Collider2D other)
+    [SerializeField] private int intensity = 1;
+    bool playerInTrigger;
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && Input.GetKey(KeyCode.Space))
-        {
-            Pickup();
-        }
+        if (!other.CompareTag("Player")) return;
+        playerInTrigger = true;
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player")) return;
+        playerInTrigger = false;
+    }
+    
+    private void Update()
+    {
+        if (!playerInTrigger || !Input.GetKey(KeyCode.Space)) return;
+        Pickup();
+        LocalPickup();
     }
 
-    public void Pickup()
+    private void LocalPickup()
     {
-        LightsManager.Instance.SetGlobalLightIntensity(1);
-        PickupsManager.Instance.CollectLight();
-        Destroy(gameObject);
+        OnFinisedAnimation += ChangeLight;
     }
 
-    public void ConnectToPlayer(Transform connectionPlace)
+    private void ChangeLight()
     {
-        
+        LightsManager.Instance.SetGlobalLightIntensity(intensity);
     }
 }

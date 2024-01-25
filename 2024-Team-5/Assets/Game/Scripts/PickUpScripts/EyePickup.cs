@@ -6,14 +6,25 @@ public class EyePickup : PickupObject
     public ColorEffect colorEffect;
     public float colorChangeDuration = 3f;
     
+    bool playerInTrigger;
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && Input.GetKey(KeyCode.Space))
-        {
-            Pickup();
-            LocalPickup();
-        }
+        if (!other.CompareTag("Player")) return;
+        playerInTrigger = true;
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player")) return;
+        playerInTrigger = false;
+    }
+    
+    private void Update()
+    {
+        if (!playerInTrigger || !Input.GetKey(KeyCode.Space)) return;
+        Pickup();
+        LocalPickup();
     }
 
     private void LocalPickup()
