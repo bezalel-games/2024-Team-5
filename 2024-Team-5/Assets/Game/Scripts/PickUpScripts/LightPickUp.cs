@@ -1,16 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class LightPickUp : MonoBehaviour
+public class LightPickUp :PickupObject
 {
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player") && Input.GetKey(KeyCode.Space))
         {
-            LightsManager.Instance.SetGlobalLightIntensity(1);
-            PickupsManager.Instance.CollectLight();
-            Destroy(gameObject);
+            Pickup();
         }
+    }
+
+    public void Pickup()
+    {
+        LightsManager.Instance.SetGlobalLightIntensity(1);
+        PickupsManager.Instance.CollectLight();
+        Destroy(gameObject);
+    }
+
+    public void ConnectToPlayer(Transform connectionPlace)
+    {
+        
     }
 }

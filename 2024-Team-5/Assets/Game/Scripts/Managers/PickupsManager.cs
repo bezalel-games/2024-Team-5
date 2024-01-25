@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PickupsManager : MonoBehaviour
@@ -9,15 +7,36 @@ public class PickupsManager : MonoBehaviour
     [SerializeField] private Sprite goodEyeSprite;
     [SerializeField] private SpriteRenderer bodyRenderer;
     [SerializeField] private GameObject ear;
-    [SerializeField] private GameObject light;
+    [SerializeField] private GameObject lightPickup;
     [SerializeField] private GameObject burner;
     
+    private PlayerMovement _playerMovement;
     private void Awake()
     {
         Instance = Instance == null ? this : Instance;
+        _playerMovement = GetComponent<PlayerMovement>();
     }
 
-    public void CollectEye()
+    public void CollectObject(GameObject obj)
+    {
+        switch (obj.name.Replace("PickUp",""))
+        {
+            case "Eye":
+                CollectEye();
+                break;
+            case "Ear":
+                CollectEar();
+                break;
+            case "Light":
+                CollectLight();
+                break;
+            case "Burner":
+                CollectBurner();
+                break;
+        }
+    }
+
+    private void CollectEye()
     {
         bodyRenderer.sprite = goodEyeSprite;
     }
@@ -26,14 +45,24 @@ public class PickupsManager : MonoBehaviour
     {
         ear.SetActive(true);
     }
-    
+
     public void CollectLight()
     {
-        light.SetActive(true);
+        lightPickup.SetActive(true);
     }
-    
+
     public void CollectBurner()
     {
         burner.SetActive(true);
+    }
+    
+    public void StopMoving()
+    {
+        _playerMovement.DisableMove();
+    }
+    
+    public void StartMoving()
+    {
+        _playerMovement.EnableMove();
     }
 }

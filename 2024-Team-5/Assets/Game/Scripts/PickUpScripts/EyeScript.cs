@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class EyeScript : MonoBehaviour
 {
@@ -11,10 +8,12 @@ public class EyeScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        // colorEffect.ColorfulEffect();
-        StartCoroutine(colorEffect.ChangeSaturationOverTime(colorChangeDuration)); 
-        // can't destroy object until coroutine is finished
-        gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        Pickup();
+    }
+
+    public void Pickup()
+    {
+        // GetComponent<Animator>().SetTrigger(Connect);
+        colorEffect.StartSaturationChange(colorChangeDuration);
     }
 }
