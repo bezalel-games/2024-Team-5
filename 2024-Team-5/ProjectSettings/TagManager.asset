@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - StickyObject
   - Collectible
+  - Lightning
   layers:
   - Default
   - TransparentFX
