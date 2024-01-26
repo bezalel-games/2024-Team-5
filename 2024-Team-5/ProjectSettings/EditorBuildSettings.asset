@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Game/Scenes/OpenScene.unity
+    guid: 45e4a43c2d4e0534aa8b3746fd90317a
+  - enabled: 1
+    path: Assets/Game/Scenes/WorldSceneTryForceField.unity
+    guid: ecc7d4c1a4e66824396d27c2d9b515c3
   m_configObjects: {}
