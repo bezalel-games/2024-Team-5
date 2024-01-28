@@ -21,11 +21,11 @@ public class LightPickUp :PickupObject
     {
         if (!playerInTrigger || !Input.GetKey(KeyCode.Space)) return;
         Pickup();
-        LocalPickup();
     }
 
-    private void LocalPickup()
+    public override void Pickup()
     {
+        base.Pickup();
         OnFinisedAnimation += ChangeLight;
     }
 

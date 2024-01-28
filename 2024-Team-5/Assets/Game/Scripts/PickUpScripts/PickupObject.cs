@@ -10,7 +10,7 @@ public class PickupObject : MonoBehaviour
     public Action OnFinisedAnimation;
     protected static readonly int Connect = Animator.StringToHash("Connect");
 
-    protected void Pickup()
+    public virtual void Pickup()
     {
         PickupsManager.Instance.StopMoving();
         GetComponent<Animator>().SetTrigger(Connect);
