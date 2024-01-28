@@ -6,6 +6,12 @@ using UnityEngine;
 public class ControlPlayerElectricField : MonoBehaviour
 {
     [SerializeField] GameObject lightning;
+    public static ControlPlayerElectricField Instance { get; private set; }
+    
+    private void Awake()
+    {
+        Instance = Instance == null ? this : Instance;
+    }
     
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -14,12 +20,18 @@ public class ControlPlayerElectricField : MonoBehaviour
             lightning.SetActive(true);
         }
     }
-
+    
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Lightning"))
         {
+            Debug.Log("Exit");
             lightning.SetActive(false);
         }
+    }
+    
+    public void StopLightning()
+    {
+        lightning.SetActive(false);
     }
 }

@@ -35,7 +35,6 @@ public class PickupObject : MonoBehaviour
     {
         float elapsedTime = 0f;
         
-        
         while (elapsedTime < duration)
         {
             // Update the elapsed time
@@ -57,7 +56,7 @@ public class PickupObject : MonoBehaviour
         PickupsManager.Instance.StartMoving();
         CameraControl.Instance.Zoom(10,2);
 
-
+        ControlPlayerElectricField.Instance.StopLightning();
         Destroy(gameObject);
     }
 
