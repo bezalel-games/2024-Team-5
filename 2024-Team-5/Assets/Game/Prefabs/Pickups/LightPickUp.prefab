@@ -8,6 +8,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 645529357171930762, guid: fc418796fee7b824d9b5a55d4fa4513d,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 645529357171930762, guid: fc418796fee7b824d9b5a55d4fa4513d,
+        type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 1.4327242
+      objectReference: {fileID: 0}
     - target: {fileID: 1878909361011364315, guid: fc418796fee7b824d9b5a55d4fa4513d,
         type: 3}
       propertyPath: m_Name
@@ -84,6 +94,26 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7931404425103272582, guid: fc418796fee7b824d9b5a55d4fa4513d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99964494
+      objectReference: {fileID: 0}
+    - target: {fileID: 7931404425103272582, guid: fc418796fee7b824d9b5a55d4fa4513d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7931404425103272582, guid: fc418796fee7b824d9b5a55d4fa4513d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7931404425103272582, guid: fc418796fee7b824d9b5a55d4fa4513d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.02664627
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -114,6 +144,7 @@ MonoBehaviour:
   animMovementDuration: 1
   connectionPlace: {fileID: 0}
   rendererTransform: {fileID: 5204267780262583294}
+  intensity: 1
 --- !u!4 &5204267780262583294 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6012228410291610378, guid: fc418796fee7b824d9b5a55d4fa4513d,

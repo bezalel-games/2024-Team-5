@@ -25,7 +25,6 @@ public class ControlPlayerElectricField : MonoBehaviour
     {
         if (other.CompareTag("Lightning"))
         {
-            Debug.Log("Exit");
             lightning.SetActive(false);
         }
     }

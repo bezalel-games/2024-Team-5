@@ -1,5 +1,6 @@
-using System;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.Serialization;
 
 public class PickupsManager : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class PickupsManager : MonoBehaviour
     [SerializeField] private GameObject antenaPickup;
     [SerializeField] private GameObject lightPickup;
     [SerializeField] private GameObject burner;
-    
+    [SerializeField] private float lightIntensity = .4f;
     private PlayerMovement _playerMovement;
     private void Awake()
     {
@@ -19,8 +20,9 @@ public class PickupsManager : MonoBehaviour
     {
         switch (obj.name.Replace("PickUp",""))
         {
-            case "Eye":
-                CollectEye();
+            case "Antena":
+                CollectAntenna();
+                
                 break;
             case "Arm":
                 // TODO: CollectArm();
@@ -34,7 +36,7 @@ public class PickupsManager : MonoBehaviour
         }
     }
 
-    private void CollectEye()
+    private void CollectAntenna()
     {
         antenaPickup.SetActive(true);
     }

@@ -48,14 +48,13 @@ public class PickupObject : MonoBehaviour
             Vector3 pos = Vector3.Lerp(pointA.position, pointB.position, t);
             transform.position = pos;
             elapsedTime += Time.deltaTime;
-            // Debug.Log(t);
             yield return null;
         }
+        
         OnFinisedAnimation?.Invoke();
         PickupsManager.Instance.CollectObject(gameObject);
         PickupsManager.Instance.StartMoving();
         CameraControl.Instance.Zoom(10,2);
-
         ControlPlayerElectricField.Instance.StopLightning();
         Destroy(gameObject);
     }
