@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.Serialization;
 
 public class PickupsManager : MonoBehaviour
 {
@@ -8,8 +6,9 @@ public class PickupsManager : MonoBehaviour
     [SerializeField] private GameObject antenaPickup;
     [SerializeField] private GameObject lightPickup;
     [SerializeField] private GameObject burner;
-    [SerializeField] private float lightIntensity = .4f;
+    [SerializeField] private GameObject wheels;
     private PlayerMovement _playerMovement;
+    
     private void Awake()
     {
         Instance = Instance == null ? this : Instance;
@@ -22,7 +21,6 @@ public class PickupsManager : MonoBehaviour
         {
             case "Antena":
                 CollectAntenna();
-                
                 break;
             case "Arm":
                 // TODO: CollectArm();
@@ -33,7 +31,16 @@ public class PickupsManager : MonoBehaviour
             case "Burner":
                 CollectBurner();
                 break;
+            case "Wheels":
+                CollectWheels();
+                break;
         }
+    }
+
+    private void CollectWheels()
+    {
+        wheels.SetActive(true);
+        PlayerMovement.instance.PickUpWheels();
     }
 
     private void CollectAntenna()

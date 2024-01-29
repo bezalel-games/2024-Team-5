@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public int speed;
-    public int jumpForce;
     public float leftMotorSpeed;
     public float rightMotorSpeed;
     
@@ -21,15 +20,14 @@ public class PlayerMovement : MonoBehaviour
     private bool canMove;
     private Rigidbody2D _rb;
     private Vector2 _movement;
-    private PlayerInput _inputAction;
     private static readonly int Moving = Animator.StringToHash("Moving");
     private bool flipped;
     private bool _isOnlyHead = true;
     private static readonly int Jump = Animator.StringToHash("Jump");
-    private Vector2 motorsSpeed;
-    private Vector2 motorsShake;
-    private bool shakin;
-    private bool withLeg = false;
+    private Vector2 _motorsSpeed;
+    private Vector2 _motorsShake;
+    private bool _shakin;
+    private bool _withLeg = false;
 
     private void Awake()
     {
@@ -40,8 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _inputAction = GetComponent<PlayerInput>();
-        motorsShake = new Vector2(leftMotorSpeed, rightMotorSpeed);
+        _motorsShake = new Vector2(leftMotorSpeed, rightMotorSpeed);
     }
     
     private void FixedUpdate()
@@ -51,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        _rb.AddForce(new Vector2(_movement.x * speed, _movement.y * speed), ForceMode2D.Force);
+        _rb.velocity = new Vector2(_movement.x * speed, _movement.y * speed);
         if (_movement.x > 0 && !flipped)
         {
             Flip();
@@ -61,16 +58,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
-        
-        if (!_isOnlyHead) return;
-        // var dir = Math.Abs(_rb.velocity.x) > .5f || _movement.x != 0 ? _rb.velocity.x : 0;
-        
-        // TODO : we need to change the is only head to be public somehow so other
-        // scripts can access it, like the burner script.
-        
-        headSpriteRenderer.transform.Rotate(Vector3.forward * (rotateSpeed *
-                (Math.Abs(_movement.x) + Math.Abs(_movement.y) + Math.Abs(_rb.velocity.x) + Math.Abs(_rb.velocity.y))),
-            Space.Self);
     }
 
     private void Flip()
@@ -93,16 +80,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        shakin = true;
-        motorsSpeed = motorsShake;
+        _shakin = true;
+        _motorsSpeed = _motorsShake;
         StartCoroutine(StopShake());
     }
 
     private IEnumerator StopShake()
     {
         yield return new WaitForSeconds(0.5f);
-        shakin = false;
-        motorsSpeed = Vector2.zero;
+        _shakin = false;
+        _motorsSpeed = Vector2.zero;
     }
 
 
@@ -115,17 +102,15 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
         
-        
-        if ((_movement == Vector2.zero || Math.Sign(_movement.x) == Math.Sign(_rb.velocity.x)) && !shakin)
+        if ((_movement == Vector2.zero || Math.Sign(_movement.x) == Math.Sign(_rb.velocity.x)) && !_shakin)
         {
-            motorsSpeed = Vector2.zero;
+            _motorsSpeed = Vector2.zero;
         }
         else
         {
-            motorsSpeed = motorsShake;
+            _motorsSpeed = _motorsShake;
         }
-        Gamepad.current?.SetMotorSpeeds(motorsSpeed[0],motorsSpeed[1]);
-
+        Gamepad.current?.SetMotorSpeeds(_motorsSpeed[0],_motorsSpeed[1]);
     }
 
     public void OnJump(InputValue value)
@@ -147,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
     {
         headSpriteRenderer.transform.rotation = quaternion.identity;
         leg.SetActive(true);
-        withLeg = true;
+        _withLeg = true;
         _isOnlyHead = false;
         _rb.drag += 5;
         speed += 15;
@@ -167,6 +152,11 @@ public class PlayerMovement : MonoBehaviour
 
     public bool GetLegStatus()
     {
-        return withLeg;
+        return _withLeg;
+    }
+
+    public void PickUpWheels()
+    {
+        speed *= 2;
     }
 }
