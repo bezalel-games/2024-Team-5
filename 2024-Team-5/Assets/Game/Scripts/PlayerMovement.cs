@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Game.Scripts.Managers;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -158,5 +159,6 @@ public class PlayerMovement : MonoBehaviour
     public void PickUpWheels()
     {
         speed *= 2;
+        MovableRocksManager.Instance.EnableMoveRocks();
     }
 }
