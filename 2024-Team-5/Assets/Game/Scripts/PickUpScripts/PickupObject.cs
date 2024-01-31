@@ -16,7 +16,7 @@ namespace Game.Scripts.PickUpScripts
         {
             PickupsManager.Instance.StopMoving();
             GetComponent<Animator>().SetTrigger(Connect);
-            CameraControl.Instance.Zoom(6,2);
+            CameraControl.Instance.Zoom(20,2);
         }
     
 
@@ -56,7 +56,7 @@ namespace Game.Scripts.PickUpScripts
             OnFinisedAnimation?.Invoke();
             PickupsManager.Instance.CollectObject(gameObject);
             PickupsManager.Instance.StartMoving();
-            CameraControl.Instance.Zoom(10,2);
+            CameraControl.Instance.Zoom(30,2);
             ControlPlayerElectricField.Instance.StopLightning();
             Destroy(gameObject);
         }

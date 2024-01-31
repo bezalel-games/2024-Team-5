@@ -998,10 +998,9 @@ MonoBehaviour:
   speed: 3
   leftMotorSpeed: 0.005
   rightMotorSpeed: 0
-  rotateSpeed: 0
-  renderer: {fileID: 0}
+  renderer: {fileID: 5898311741446313571}
   headSpriteRenderer: {fileID: 6015590350543163851}
-  anim: {fileID: 0}
+  anim: {fileID: 350471779385924230}
   leg: {fileID: 1120736439416751810}
 --- !u!114 &1984413112160638738
 MonoBehaviour:
@@ -1017,8 +1016,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   antenaPickup: {fileID: 6046257381954643265}
   lightPickup: {fileID: 6166231818655651441}
-  burner: {fileID: 0}
-  wheels: {fileID: 0}
+  burner: {fileID: 7515882175758331253}
+  wheels: {fileID: 1120736439416751810}
 --- !u!61 &737710007509123386
 BoxCollider2D:
   m_ObjectHideFlags: 0
