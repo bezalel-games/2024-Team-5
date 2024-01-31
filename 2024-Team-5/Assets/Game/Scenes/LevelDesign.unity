@@ -9515,6 +9515,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &432182882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 432182883}
+  m_Layer: 0
+  m_Name: MovableRocksManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &432182883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432182882}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 134.40384, y: -93.79016, z: -2.691139}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 485941818}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &475141168
 GameObject:
   m_ObjectHideFlags: 0
@@ -9714,6 +9745,7 @@ Transform:
   m_Children:
   - {fileID: 1943600785}
   - {fileID: 769455171}
+  - {fileID: 432182883}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &489734678
@@ -22280,7 +22312,7 @@ ParticleSystemRenderer:
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
-  m_LightProbeUsage: 0
+  m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
@@ -28360,6 +28392,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4214003427626658207, guid: d3a194120e206a44d8a90bd7156cc634,
         type: 3}
+      propertyPath: m_Intensity
+      value: 0.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 4214003427626658207, guid: d3a194120e206a44d8a90bd7156cc634,
+        type: 3}
       propertyPath: m_LightType
       value: 1
       objectReference: {fileID: 0}
@@ -28397,22 +28434,22 @@ PrefabInstance:
     - target: {fileID: 4214003427626658207, guid: d3a194120e206a44d8a90bd7156cc634,
         type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: -0.03820038
+      value: -0.0394001
       objectReference: {fileID: 0}
     - target: {fileID: 4214003427626658207, guid: d3a194120e206a44d8a90bd7156cc634,
         type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: 0.0014500618
+      value: 0.016749859
       objectReference: {fileID: 0}
     - target: {fileID: 4214003427626658207, guid: d3a194120e206a44d8a90bd7156cc634,
         type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 22.4659
+      value: 22.4617
       objectReference: {fileID: 0}
     - target: {fileID: 4214003427626658207, guid: d3a194120e206a44d8a90bd7156cc634,
         type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 14.42485
+      value: 14.42355
       objectReference: {fileID: 0}
     - target: {fileID: 4214003427626658207, guid: d3a194120e206a44d8a90bd7156cc634,
         type: 3}
