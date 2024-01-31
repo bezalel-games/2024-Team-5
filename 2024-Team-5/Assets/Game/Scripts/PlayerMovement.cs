@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Game.Scripts.Managers;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public float leftMotorSpeed;
     public float rightMotorSpeed;
     
-    [SerializeField] private int rotateSpeed = 5;
     [SerializeField] private GameObject renderer;
     [SerializeField] private SpriteRenderer headSpriteRenderer;
     [SerializeField] private Animator anim;
@@ -21,14 +19,17 @@ public class PlayerMovement : MonoBehaviour
     private bool canMove;
     private Rigidbody2D _rb;
     private Vector2 _movement;
-    private static readonly int Moving = Animator.StringToHash("Moving");
     private bool flipped;
-    private bool _isOnlyHead = true;
-    private static readonly int Jump = Animator.StringToHash("Jump");
+    private bool _hasWheels;
     private Vector2 _motorsSpeed;
     private Vector2 _motorsShake;
     private bool _shakin;
-    private bool _withLeg = false;
+    private int moveDirForAnimation;
+    private static readonly int Jump = Animator.StringToHash("Jump");
+    private static readonly int HasWheelsName = Animator.StringToHash("hasWheels");
+    private static readonly int Horizontal = Animator.StringToHash("Horizontal");
+    private static readonly int Up = Animator.StringToHash("Up");
+    private static readonly int Down = Animator.StringToHash("Down");
 
     private void Awake()
     {
@@ -49,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        _rb.velocity = new Vector2(_movement.x * speed, _movement.y * speed);
         if (_movement.x > 0 && !flipped)
         {
             Flip();
@@ -66,14 +66,15 @@ public class PlayerMovement : MonoBehaviour
         if (flipped)
         {
             var localScale = renderer.transform.localScale;
-            localScale = new Vector3( -1, localScale.y, localScale.z);
+            localScale = new Vector3( 1, localScale.y, localScale.z);
             renderer.transform.localScale = localScale;
             flipped = false;
         }
+        
         else
         {
             var localScale = renderer.transform.localScale;
-            localScale = new Vector3( 1, localScale.y, localScale.z);
+            localScale = new Vector3( -1, localScale.y, localScale.z);
             renderer.transform.localScale = localScale;
             flipped = true;
         }
@@ -97,10 +98,32 @@ public class PlayerMovement : MonoBehaviour
     private void OnMove(InputValue value)
     {
         _movement = value.Get<Vector2>();
-        if (!_isOnlyHead)
+
+        if (_hasWheels)
         {
-            anim.SetBool(Moving, _movement != Vector2.zero);
+            _rb.velocity = new Vector2(_movement.x * speed, _movement.y * speed);
             return;
+        }
+        
+        if (_hasWheels && _movement != Vector2.zero)
+        {
+            anim.SetBool(HasWheelsName, true);
+        }
+
+        if (_movement.x != 0)
+        {
+            moveDirForAnimation = (int) math.sign(_movement.x);
+            anim.SetTrigger(Horizontal);
+        }
+
+        if (_movement.y > 0)
+        {
+            anim.SetTrigger(Up);
+        }
+        
+        if (_movement.y < 0)
+        {
+            anim.SetTrigger(Down);
         }
         
         if ((_movement == Vector2.zero || Math.Sign(_movement.x) == Math.Sign(_rb.velocity.x)) && !_shakin)
@@ -116,8 +139,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
-        if (value.Get<float>() == 0 || _isOnlyHead) return;
-        anim.SetTrigger(Jump);
+        if (value.Get<float>() == 0 || _hasWheels) return;
+        // anim.SetTrigger(Jump);
         GetComponent<Collider2D>().isTrigger = true;
         StartCoroutine(resumeCollider());
     }
@@ -133,8 +156,7 @@ public class PlayerMovement : MonoBehaviour
     {
         headSpriteRenderer.transform.rotation = quaternion.identity;
         leg.SetActive(true);
-        _withLeg = true;
-        _isOnlyHead = false;
+        _hasWheels = false;
         _rb.drag += 5;
         speed += 15;
     }
@@ -150,15 +172,34 @@ public class PlayerMovement : MonoBehaviour
         canMove = true;
     }
 
-
-    public bool GetLegStatus()
-    {
-        return _withLeg;
-    }
-
     public void PickUpWheels()
     {
         speed *= 2;
         MovableRocksManager.Instance.EnableMoveRocks();
+        _hasWheels = true;
     }
+
+    public void Crawl(int dir) // set by animation event
+    {
+        switch (dir)
+        {
+            case 0:
+            {
+                _rb.AddForce(Vector2.right * speed * moveDirForAnimation, ForceMode2D.Impulse);
+                break;
+            }
+            case 1:
+                _rb.AddForce(Vector2.down * speed, ForceMode2D.Impulse);
+                break;
+            case 2:
+                _rb.AddForce(Vector2.up * speed, ForceMode2D.Impulse);
+                break;
+        }
+    }
+    
+    public bool HasWheels()
+    {
+        return _hasWheels;
+    }
+    
 }

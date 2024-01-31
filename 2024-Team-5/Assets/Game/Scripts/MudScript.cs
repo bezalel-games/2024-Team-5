@@ -11,7 +11,7 @@ public class MudScript : MonoBehaviour
         if (other.transform.CompareTag("Player"))
         {
             Debug.Log("player");
-            if (PlayerMovement.instance.GetLegStatus())
+            if (PlayerMovement.instance.HasWheels())
             {
                 Debug.Log("leg");
                 transform.GetComponent<CapsuleCollider2D>().enabled = false;

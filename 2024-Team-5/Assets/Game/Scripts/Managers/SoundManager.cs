@@ -6,7 +6,6 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private GameObject[] gameObjectsAudioSources;
     [SerializeField] private AudioSource gameWhiteNoiseAudioSource;
     [SerializeField] private AudioSource rainSoundtrack;
-    [SerializeField] private AudioSource muffeldRainSoundtrack;
     [SerializeField] private AudioSource thunderSound;
     [SerializeField] private float thunderWaitTime = 1;
     public static SoundManager Instance { get; private set; }
