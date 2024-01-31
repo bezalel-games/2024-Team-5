@@ -19,6 +19,10 @@ namespace Game.Scripts.Managers
             for (int i = 0; i < rocksRigidbodies.Length; i++)
             {
                 rocksRigidbodies[i].bodyType = RigidbodyType2D.Dynamic;
+                rocksRigidbodies[i].gravityScale = 0;
+                rocksRigidbodies[i].mass = Random.Range(1,2);
+                rocksRigidbodies[i].angularDrag = Random.Range(1,1.5f);
+                rocksRigidbodies[i].drag = Random.Range(0.7f, 1.2f);
             }
         }
 
