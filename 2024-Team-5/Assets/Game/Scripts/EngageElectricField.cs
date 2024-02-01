@@ -5,15 +5,19 @@ using UnityEngine;
 public class EngageElectricField : MonoBehaviour
 {
     [SerializeField] private GameObject electricField;
-    private void OnTriggerStay2D(Collider2D other)
+    public Animator animator;
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        electricField.SetActive(true);
+        // electricField.SetActive(true);
+        animator.SetTrigger("StopAntenna");
     }
     
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        electricField.SetActive(false);
+        // electricField.SetActive(false);
+        animator.SetTrigger("StopAntenna");
+
     }
 }
