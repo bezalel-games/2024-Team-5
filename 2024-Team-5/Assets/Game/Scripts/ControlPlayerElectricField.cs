@@ -38,4 +38,10 @@ public class ControlPlayerElectricField : MonoBehaviour
         animator.SetTrigger("StopAntenna");
 
     }
+    
+    public void StartLightning()
+    {
+        animator.SetTrigger("StartAntenna");
+
+    }
 }

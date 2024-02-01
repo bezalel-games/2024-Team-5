@@ -10,7 +10,8 @@ public class EngageElectricField : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
         // electricField.SetActive(true);
-        animator.SetTrigger("StopAntenna");
+        animator.SetTrigger("StartAntenna");
+        other.gameObject.GetComponent<ControlPlayerElectricField>().StartLightning();
     }
     
     private void OnTriggerExit2D(Collider2D other)
@@ -18,6 +19,7 @@ public class EngageElectricField : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         // electricField.SetActive(false);
         animator.SetTrigger("StopAntenna");
+        other.gameObject.GetComponent<ControlPlayerElectricField>().StopLightning();
 
     }
 }
