@@ -14,7 +14,7 @@ public class ColorEffect : MonoBehaviour
     private void Start()
     {
         volume.profile.TryGet(out _colorAdjustments);
-        _colorAdjustments.saturation.value = startSaturation;
+        // _colorAdjustments.saturation.value = startSaturation;
     }
 
     private IEnumerator ChangeSaturationOverTime(float duration)
@@ -42,6 +42,6 @@ public class ColorEffect : MonoBehaviour
     
     public void StartSaturationChange(float duration)
     {
-        StartCoroutine(ChangeSaturationOverTime(duration));
+        // StartCoroutine(ChangeSaturationOverTime(duration));
     }
 }

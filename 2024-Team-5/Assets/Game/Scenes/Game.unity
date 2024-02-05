@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -751,12 +751,6 @@ PolygonCollider2D:
 --- !u!4 &1657348587 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6457153854136848309, guid: d3a194120e206a44d8a90bd7156cc634,
-    type: 3}
-  m_PrefabInstance: {fileID: 1883834226744377188}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1657348594 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 6055158792192305915, guid: d3a194120e206a44d8a90bd7156cc634,
     type: 3}
   m_PrefabInstance: {fileID: 1883834226744377188}
   m_PrefabAsset: {fileID: 0}
@@ -1710,7 +1704,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameWhiteNoiseAudioSource
       value: 
-      objectReference: {fileID: 1657348594}
+      objectReference: {fileID: 0}
     - target: {fileID: 6959637180049294233, guid: fa1f75d0b40afdd47afea2ded77c3ca4,
         type: 3}
       propertyPath: gameObjectsAudioSources.Array.data[0]
