@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private SpriteRenderer headSpriteRenderer;
     [SerializeField] private Animator anim;
     [SerializeField] private GameObject leg;
-
+    
     public static PlayerMovement instance;
     private bool canMove;
     private Rigidbody2D _rb;
@@ -25,7 +25,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _motorsShake;
     private bool _shakin;
     private int moveDirForAnimation;
-    private static readonly int Jump = Animator.StringToHash("Jump");
+    private PlayerAnimationsManager _playerAnimationsManager;
+    
     private static readonly int HasWheelsName = Animator.StringToHash("HasWheels");
     private static readonly int Horizontal = Animator.StringToHash("Horizontal");
     private static readonly int Up = Animator.StringToHash("Up");
@@ -41,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _motorsShake = new Vector2(leftMotorSpeed, rightMotorSpeed);
+        _playerAnimationsManager = GetComponent<PlayerAnimationsManager>();
     }
     
     private void Update()
@@ -50,10 +52,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        if (_hasWheels)
-        {
-            _rb.velocity = new Vector2(_movement.x * speed, _movement.y * speed);
-        }
+        _playerAnimationsManager.SetPlayerAnimation(_movement);
+        // if (_hasWheels)
+        // {
+            _rb.velocity = new Vector2(_movement.x, _movement.y).normalized * speed;
+        // }
         
         if (_movement.x > 0 && !flipped)
         {
@@ -71,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         if (flipped)
         {
             var localScale = renderer.transform.localScale;
-            localScale = new Vector3( 1, localScale.y, localScale.z);
+            localScale = new Vector3( -1, localScale.y, localScale.z);
             renderer.transform.localScale = localScale;
             flipped = false;
         }
@@ -79,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             var localScale = renderer.transform.localScale;
-            localScale = new Vector3( -1, localScale.y, localScale.z);
+            localScale = new Vector3( 1, localScale.y, localScale.z);
             renderer.transform.localScale = localScale;
             flipped = true;
         }
@@ -103,27 +106,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnMove(InputValue value)
     {
         _movement = value.Get<Vector2>();
-        if (_rb.velocity.magnitude > 1f) return;
-        if (_movement.x != 0)
-        {
-            moveDirForAnimation = (int) math.sign(_movement.x);
-            anim.SetTrigger(Horizontal);
-            Crawl(0);
-        }
-
-        if (_movement.y > 0)
-        {
-            anim.SetTrigger(Up);
-            Crawl(2);
-
-        }
-        
-        if (_movement.y < 0)
-        {
-            anim.SetTrigger(Down);
-            Crawl(1);
-
-        }
+        // if (_rb.velocity.magnitude > 1f) return;
         
         if ((_movement == Vector2.zero || Math.Sign(_movement.x) == Math.Sign(_rb.velocity.x)) && !_shakin)
         {
@@ -140,7 +123,6 @@ public class PlayerMovement : MonoBehaviour
     public void OnJump(InputValue value)
     {
         if (value.Get<float>() == 0 || _hasWheels) return;
-        // anim.SetTrigger(Jump);
         GetComponent<Collider2D>().isTrigger = true;
         StartCoroutine(resumeCollider());
     }
@@ -180,6 +162,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool(HasWheelsName, true);
     }
 
+    //TODO: delete?
     public void Crawl(int dir) // set by animation event
     {
         

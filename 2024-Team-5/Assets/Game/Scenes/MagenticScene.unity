@@ -42133,22 +42133,22 @@ PrefabInstance:
     - target: {fileID: 4643239624221314114, guid: 4f6d52f39d3419c4f988c0c340e39bc5,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6699956317549782507, guid: 4f6d52f39d3419c4f988c0c340e39bc5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.3712964
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6699956317549782507, guid: 4f6d52f39d3419c4f988c0c340e39bc5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.897231
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6699956317549782507, guid: 4f6d52f39d3419c4f988c0c340e39bc5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.7681146
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6699956317549782507, guid: 4f6d52f39d3419c4f988c0c340e39bc5,
         type: 3}
