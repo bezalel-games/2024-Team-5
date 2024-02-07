@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MovableRocksManager : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D[] rocksRigidbodies;
+    [SerializeField] private MovableRock[] rocks;
 
     public static MovableRocksManager Instance { get; private set; }
     
@@ -11,16 +11,12 @@ public class MovableRocksManager : MonoBehaviour
         Instance = Instance == null ? this : Instance;
     }
 
-    // once the player has wheels, the rocks can be moved
+    
     public void EnableMoveRocks()
     {
-        for (int i = 0; i < rocksRigidbodies.Length; i++)
+        foreach (var rock in rocks)
         {
-            rocksRigidbodies[i].bodyType = RigidbodyType2D.Dynamic;
-            rocksRigidbodies[i].gravityScale = 0;
-            rocksRigidbodies[i].mass = Random.Range(0.5f,1);
-            rocksRigidbodies[i].angularDrag = Random.Range(1,1.5f);
-            rocksRigidbodies[i].drag = Random.Range(0.7f, 1.2f);
+            rock.EnableRock();
         }
     }
 

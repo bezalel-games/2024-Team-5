@@ -4,15 +4,24 @@ public class ObstaclesManager : MonoBehaviour
 {
     public static ObstaclesManager Instance { get; private set; }
     
-    public Obstacle[] obstacles; 
+    public Obstacle[] ramps; 
+    public Obstacle[] rocks; 
     private void Awake()
     {
         Instance = Instance == null ? this : Instance;
     }
-
-    public void DisableObstacles()
+    
+    public void DisableRocksStatic()
     {
-        foreach (var obstacle in obstacles)
+        foreach (var obstacle in rocks)
+        {
+            obstacle.RemoveObstacle();
+        }
+    }
+    
+    public void DisableRamps()
+    {
+        foreach (var obstacle in ramps)
         {
             obstacle.RemoveObstacle();
         }

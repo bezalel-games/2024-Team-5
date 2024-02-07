@@ -42,7 +42,7 @@ public class PickupsManager : MonoBehaviour
     {
         wheels.SetActive(true);
         PlayerMovement.instance.PickUpWheels();
-        ObstaclesManager.Instance.DisableObstacles();
+        ObstaclesManager.Instance.DisableRamps();
     }
 
     private void CollectCamera()
@@ -64,6 +64,7 @@ public class PickupsManager : MonoBehaviour
     {
         arm.SetActive(true);
         _hasArm = true;
+        ObstaclesManager.Instance.DisableRocksStatic();
     }
 
     public bool HasArm()

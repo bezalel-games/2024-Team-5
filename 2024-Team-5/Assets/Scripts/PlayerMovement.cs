@@ -152,7 +152,6 @@ public class PlayerMovement : MonoBehaviour
     public void PickUpWheels()
     {
         speed += 5;
-        MovableRocksManager.Instance.EnableMoveRocks();
         _hasWheels = true;
     }
 
