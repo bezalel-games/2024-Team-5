@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5502723979494871006}
   - component: {fileID: 9138914380807589978}
   - component: {fileID: 6824952810146716629}
-  - component: {fileID: 6736578968738886799}
+  - component: {fileID: 1558431165189638470}
   m_Layer: 0
   m_Name: MovableRock
   m_TagString: Untagged
@@ -126,8 +126,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6736578968738886799
-BoxCollider2D:
+--- !u!70 &1558431165189638470
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -158,16 +158,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12660468, y: -0.2502348}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.18, y: 1.86}
-    newSize: {x: 2.66, y: 2.41}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.0951488, y: 1.3251979}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.06612683, y: 0.012603611}
+  m_Size: {x: 3.4283915, y: 1.9953965}
+  m_Direction: 1
