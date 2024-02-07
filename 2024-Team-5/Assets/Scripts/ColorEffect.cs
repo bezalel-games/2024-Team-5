@@ -28,7 +28,7 @@ public class ColorEffect : MonoBehaviour
         
         while (elapsedTime < duration)
         {
-            elapsedTime += Time.fixedDeltaTime;
+            elapsedTime += Time.deltaTime;
             digitalGlitch.intensity.value = Mathf.Lerp(startDigitalGlitch, 1, elapsedTime / duration);
             analogGlitch.colorDrift.value = Mathf.Lerp(startAnalogGlitch, 1, elapsedTime / duration);
             analogGlitch.scanLineJitter.value = Mathf.Lerp(startScanLine, 1, elapsedTime / duration);

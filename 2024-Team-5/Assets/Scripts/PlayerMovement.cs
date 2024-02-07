@@ -114,13 +114,6 @@ public class PlayerMovement : MonoBehaviour
         
         Gamepad.current?.SetMotorSpeeds(_motorsSpeed[0],_motorsSpeed[1]);
     }
-
-    public void OnJump(InputValue value)
-    {
-        if (value.Get<float>() == 0 || _hasWheels) return;
-        GetComponent<Collider2D>().isTrigger = true;
-        StartCoroutine(resumeCollider());
-    }
     
     IEnumerator resumeCollider()
     {
