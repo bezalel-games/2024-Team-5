@@ -13,6 +13,8 @@ public class TeleportPlayerToFromCave : MonoBehaviour
     [SerializeField] private float transitionDuration = 1f;
     [SerializeField] private float delayDurationAfterTurnBlack = 0.7f; // 1 second delay
     [SerializeField] float caveLightIntensity = 0.05f;
+    [SerializeField] private GameObject PlayerLight;
+    [SerializeField] private GameObject light;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -53,6 +55,12 @@ public class TeleportPlayerToFromCave : MonoBehaviour
                 gameLight.intensity = Mathf.Lerp(0f, startIntensity, elapsedTime / transitionDuration);
                 yield return null;
             }
+
+            if (PlayerLight.activeSelf)
+            {
+                light.SetActive(true);  
+            }
+            
         }
         else
         {
@@ -64,6 +72,10 @@ public class TeleportPlayerToFromCave : MonoBehaviour
                 yield return null;
             }
             gameLight.intensity = 1; // Ensure light intensity is back to original value
+            if (PlayerLight.activeSelf)
+            {
+                light.SetActive(false);
+            }
         }
     }
 }
