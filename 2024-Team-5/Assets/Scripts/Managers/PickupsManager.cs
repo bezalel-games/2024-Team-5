@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -14,6 +15,12 @@ public class PickupsManager : MonoBehaviour
     private void Awake()
     {
         Instance = Instance == null ? this : Instance;
+        // At the moment we start with an arm
+    }
+
+    private void Start()
+    {
+        CollectArm();
     }
 
     public void CollectObject(GameObject obj)
