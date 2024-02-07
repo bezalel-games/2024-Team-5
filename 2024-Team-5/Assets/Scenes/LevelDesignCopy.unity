@@ -25406,7 +25406,7 @@ PrefabInstance:
     - target: {fileID: 285057156137900972, guid: 93d9e5b9d20db094ab86aaf1f362a68c,
         type: 3}
       propertyPath: rocks.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 285057156137900972, guid: 93d9e5b9d20db094ab86aaf1f362a68c,
         type: 3}
@@ -25418,6 +25418,11 @@ PrefabInstance:
       propertyPath: rocks.Array.data[0]
       value: 
       objectReference: {fileID: 2413594304777801623}
+    - target: {fileID: 285057156137900972, guid: 93d9e5b9d20db094ab86aaf1f362a68c,
+        type: 3}
+      propertyPath: rocks.Array.data[1]
+      value: 
+      objectReference: {fileID: 1849788857}
     - target: {fileID: 285057156137900972, guid: 93d9e5b9d20db094ab86aaf1f362a68c,
         type: 3}
       propertyPath: obstacles.Array.data[0]
@@ -57548,6 +57553,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1849788852}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1849788857 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5502723979494871006, guid: 396ce929303116747aac80c0292457b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1849788852}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3497a6f99744a4aacc553bcbe6ea1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1860148571
 GameObject:
   m_ObjectHideFlags: 0
