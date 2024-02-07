@@ -6,6 +6,8 @@ public class Hole : MonoBehaviour
     [SerializeField] private Sprite filledHoleSprite;
     [SerializeField] private SpriteRenderer holeRenderer;
     [SerializeField] private Bubbles bubbles;
+
+    [SerializeField] private Collider2D[] Colliders;
     private void Start()
     {
         holeRenderer = GetComponent<SpriteRenderer>();
@@ -22,5 +24,9 @@ public class Hole : MonoBehaviour
         FillHole();
         bubbles.Burst();
         Destroy(other.gameObject);
+        foreach (var col in Colliders)
+        {
+            col.enabled = false;
+        }
     }
 }

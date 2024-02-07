@@ -570,7 +570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3ac47426946ec458fa717c4dcc07f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNameToOpen: MagenticScene
+  sceneNameToOpen: LevelDesignCopy
 --- !u!114 &2092601728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,7 +600,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 7c3c99e5fa19b5a47893b302625a51f5,
+    m_HighlightedSprite: {fileID: 21300000, guid: 1bbb3d78598971f4f85a2a9ba8bae8f5,
       type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 28cbe5561119407408a6317a9ee11af9, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: 28cbe5561119407408a6317a9ee11af9, type: 3}
@@ -682,7 +682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2118224562
 SpriteRenderer:
   m_ObjectHideFlags: 0

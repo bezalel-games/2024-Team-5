@@ -18,8 +18,6 @@ public class TeleportPlayerToFromCave : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Triggered");
-        Debug.Log(inCave);
         if (other.CompareTag("Player"))
         {
             StartCoroutine(TeleportPlayer(other.transform));

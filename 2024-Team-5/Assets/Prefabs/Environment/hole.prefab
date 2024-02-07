@@ -148,6 +148,9 @@ MonoBehaviour:
   filledHoleSprite: {fileID: 21300000, guid: 847401d1327a7774b9041acbec6d1032, type: 3}
   holeRenderer: {fileID: 8159147187172164530}
   bubbles: {fileID: 3976225548881374805}
+  Colliders:
+  - {fileID: 2331253648277302498}
+  - {fileID: 8649439600158320096}
 --- !u!70 &2331253648277302498
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
