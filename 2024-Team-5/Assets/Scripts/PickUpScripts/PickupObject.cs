@@ -25,6 +25,7 @@ public class PickupObject : MonoBehaviour
     public virtual void ConnectToPlayer()
     {
         ResetPos();
+        rendererTransform.GetComponent<SpriteRenderer>().sortingOrder = 10;
         StartCoroutine(MoveObject(transform, connectionPlace, animMovementDuration));
     }
 
@@ -35,7 +36,7 @@ public class PickupObject : MonoBehaviour
     private IEnumerator MoveObject(Transform pointA, Transform pointB, float duration)
     {
         float elapsedTime = 0f;
-    
+        
         while (elapsedTime < duration)
         {
             // Update the elapsed time

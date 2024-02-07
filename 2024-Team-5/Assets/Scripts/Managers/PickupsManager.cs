@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PickupsManager : MonoBehaviour
 {
@@ -8,12 +9,11 @@ public class PickupsManager : MonoBehaviour
     [SerializeField] private GameObject burner;
     [SerializeField] private GameObject wheels;
     [SerializeField] private GameObject arm;
-    private PlayerMovement _playerMovement;
+    [SerializeField] private PlayerMovement playerMovement;
     private bool _hasArm;
     private void Awake()
     {
         Instance = Instance == null ? this : Instance;
-        _playerMovement = GetComponent<PlayerMovement>();
     }
 
     public void CollectObject(GameObject obj)
@@ -65,6 +65,7 @@ public class PickupsManager : MonoBehaviour
         arm.SetActive(true);
         _hasArm = true;
         ObstaclesManager.Instance.DisableRocksStatic();
+        PlayerInteractions.Instance.SetHasArm(true);
     }
 
     public bool HasArm()
@@ -74,11 +75,11 @@ public class PickupsManager : MonoBehaviour
 
     public void StopMoving()
     {
-        _playerMovement.DisableMove();
+        playerMovement.DisableMove();
     }
     
     public void StartMoving()
     {
-        _playerMovement.EnableMove();
+        playerMovement.EnableMove();
     }
 }
