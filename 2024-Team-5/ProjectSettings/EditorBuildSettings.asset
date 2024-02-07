@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Game/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/OldTests/WorldSceneTryForceField.unity
     guid: ecc7d4c1a4e66824396d27c2d9b515c3
+  - enabled: 1
+    path: Assets/Scenes/MagenticScene.unity
+    guid: 7a6472fc4b61e0144b739473aef42b63
   m_configObjects: {}

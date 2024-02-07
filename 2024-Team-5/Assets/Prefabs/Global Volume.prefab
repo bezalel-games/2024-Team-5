@@ -45,8 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: {fileID: 3631075114480353524}
-  startSaturation: -100
+  startSaturation: 0
   endSaturation: 0
+  startContrast: 200
+  endConstrast: 0
 --- !u!1 &4643239624221314114
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,7 +65,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6699956317549782507
 Transform:
   m_ObjectHideFlags: 0
@@ -96,4 +98,4 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: a633a5729e52cd549ac9929f24de820f, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 56a0eb7ca0c1d8143bd6eba71feaf381, type: 2}

@@ -570,7 +570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3ac47426946ec458fa717c4dcc07f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNameToOpen: WorldSceneTryForceField
+  sceneNameToOpen: MagenticScene
 --- !u!114 &2092601728
 MonoBehaviour:
   m_ObjectHideFlags: 0

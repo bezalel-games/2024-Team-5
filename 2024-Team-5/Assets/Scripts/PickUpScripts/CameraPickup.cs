@@ -1,8 +1,10 @@
 using UnityEngine;
 
-public class LightPickUp :PickupObject
+public class CameraPickup : PickupObject
 {
-    [SerializeField] private int intensity = 1;
+    public ColorEffect colorEffect;
+    public float colorChangeDuration = 3f;
+
     bool playerInTrigger;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -10,13 +12,13 @@ public class LightPickUp :PickupObject
         if (!other.CompareTag("Player")) return;
         playerInTrigger = true;
     }
-    
+
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
         playerInTrigger = false;
     }
-    
+
     private void Update()
     {
         if (!playerInTrigger || !Input.GetKey(KeyCode.Space)) return;
@@ -26,11 +28,15 @@ public class LightPickUp :PickupObject
     public override void Pickup()
     {
         base.Pickup();
-        OnFinisedAnimation += ChangeLight;
+        OnFinisedAnimation += ShowColor;
+        OnFinisedAnimation += SoundManager.Instance.EnableSound;
     }
 
-    private void ChangeLight()
+
+    private void ShowColor()
     {
-        // LightsManager.Instance.SetGlobalLightIntensity(intensity);
+        colorEffect.FixGlitch(colorChangeDuration);
+        OnFinisedAnimation -= ShowColor;
     }
 }
+

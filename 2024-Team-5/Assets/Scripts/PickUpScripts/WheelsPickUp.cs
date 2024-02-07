@@ -1,4 +1,3 @@
-using Game.Scripts.PickUpScripts;
 using UnityEngine;
 
 public class WheelsPickUp : PickupObject

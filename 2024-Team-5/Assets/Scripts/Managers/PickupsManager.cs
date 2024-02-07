@@ -3,7 +3,7 @@ using UnityEngine;
 public class PickupsManager : MonoBehaviour
 {
     public static PickupsManager Instance { get; private set; }
-    [SerializeField] private GameObject antenaPickup;
+    [SerializeField] private GameObject cameraPickup;
     [SerializeField] private GameObject lightPickup;
     [SerializeField] private GameObject burner;
     [SerializeField] private GameObject wheels;
@@ -19,8 +19,8 @@ public class PickupsManager : MonoBehaviour
     {
         switch (obj.name.Replace("PickUp",""))
         {
-            case "Antena":
-                CollectAntenna();
+            case "Camera":
+                CollectCamera();
                 break;
             case "Arm":
                 // TODO: CollectArm();
@@ -43,9 +43,9 @@ public class PickupsManager : MonoBehaviour
         PlayerMovement.instance.PickUpWheels();
     }
 
-    private void CollectAntenna()
+    private void CollectCamera()
     {
-        antenaPickup.SetActive(true);
+        cameraPickup.SetActive(true);
     }
 
     private void CollectLight()

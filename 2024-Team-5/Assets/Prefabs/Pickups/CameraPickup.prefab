@@ -16,12 +16,12 @@ PrefabInstance:
     - target: {fileID: 645529357171930762, guid: fc418796fee7b824d9b5a55d4fa4513d,
         type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 1.660935
+      value: 2.539674
       objectReference: {fileID: 0}
     - target: {fileID: 1878909361011364315, guid: fc418796fee7b824d9b5a55d4fa4513d,
         type: 3}
       propertyPath: m_Name
-      value: AntenaPickup
+      value: CameraPickup
       objectReference: {fileID: 0}
     - target: {fileID: 2065961259985685991, guid: fc418796fee7b824d9b5a55d4fa4513d,
         type: 3}
@@ -73,6 +73,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2633484929194876825, guid: fc418796fee7b824d9b5a55d4fa4513d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 4.278061
+      objectReference: {fileID: 0}
+    - target: {fileID: 2633484929194876825, guid: fc418796fee7b824d9b5a55d4fa4513d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 5.7789917
+      objectReference: {fileID: 0}
+    - target: {fileID: 2633484929194876825, guid: fc418796fee7b824d9b5a55d4fa4513d,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.047538757
+      objectReference: {fileID: 0}
+    - target: {fileID: 2633484929194876825, guid: fc418796fee7b824d9b5a55d4fa4513d,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.003829956
+      objectReference: {fileID: 0}
     - target: {fileID: 5065239271670757993, guid: fc418796fee7b824d9b5a55d4fa4513d,
         type: 3}
       propertyPath: m_Controller
@@ -92,7 +112,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 9f4b8d2ccc3dc924fb9d024d62ec0cef,
+      objectReference: {fileID: 21300000, guid: 215acdc41eb17114cb380f5bbda012ab,
         type: 3}
     - target: {fileID: 6048060793826672935, guid: fc418796fee7b824d9b5a55d4fa4513d,
         type: 3}
@@ -117,7 +137,7 @@ PrefabInstance:
     - target: {fileID: 7931404425103272582, guid: fc418796fee7b824d9b5a55d4fa4513d,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9999802
+      value: 0.99822885
       objectReference: {fileID: 0}
     - target: {fileID: 7931404425103272582, guid: fc418796fee7b824d9b5a55d4fa4513d,
         type: 3}
@@ -132,7 +152,7 @@ PrefabInstance:
     - target: {fileID: 7931404425103272582, guid: fc418796fee7b824d9b5a55d4fa4513d,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.006296737
+      value: -0.05949135
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
