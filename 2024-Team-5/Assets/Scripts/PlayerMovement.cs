@@ -26,11 +26,6 @@ public class PlayerMovement : MonoBehaviour
     private bool _shakin;
     private int moveDirForAnimation;
     private PlayerAnimationsManager _playerAnimationsManager;
-    
-    private static readonly int HasWheelsName = Animator.StringToHash("HasWheels");
-    private static readonly int Horizontal = Animator.StringToHash("Horizontal");
-    private static readonly int Up = Animator.StringToHash("Up");
-    private static readonly int Down = Animator.StringToHash("Down");
 
     private void Awake()
     {
@@ -156,10 +151,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void PickUpWheels()
     {
-        // speed = 3;
+        speed += 5;
         MovableRocksManager.Instance.EnableMoveRocks();
         _hasWheels = true;
-        anim.SetBool(HasWheelsName, true);
     }
 
     //TODO: delete?

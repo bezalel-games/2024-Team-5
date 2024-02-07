@@ -1,13 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObstaclesManager : MonoBehaviour
 {
     public static ObstaclesManager Instance { get; private set; }
     
-    public GameObject[] obstacles; 
+    public Obstacle[] obstacles; 
     private void Awake()
     {
         Instance = Instance == null ? this : Instance;
@@ -17,7 +14,7 @@ public class ObstaclesManager : MonoBehaviour
     {
         foreach (var obstacle in obstacles)
         {
-            obstacle.SetActive(false);
+            obstacle.RemoveObstacle();
         }
     }
 }
