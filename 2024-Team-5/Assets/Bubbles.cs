@@ -4,7 +4,7 @@ public class Bubbles : MonoBehaviour
 {
     [SerializeField] private GameObject starPrefab;
     [SerializeField] private float burstForce;
-    private ParticleSystem _particleSystem;
+    [SerializeField] private ParticleSystem _particleSystem;
     private ParticleSystem.Particle[] _particles; 
     
     private void Start()
@@ -14,14 +14,16 @@ public class Bubbles : MonoBehaviour
 
     public void Burst()
     {
-        _particleSystem.GetParticles(_particles);
+        var particles = new ParticleSystem.Particle[_particleSystem.main.maxParticles];
+        var currentAmount = _particleSystem.GetParticles(particles);
 
-        foreach (var particle in _particles)
+        for (int i = 0; i < currentAmount; i++)
         {
-            var star = Instantiate(starPrefab, particle.position, Quaternion.identity);
+            var star = Instantiate(starPrefab, particles[i].position, Quaternion.identity);
             star.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-1f,1f), 1) * burstForce, ForceMode2D.Impulse );
         }
         
+        _particleSystem.Clear();
         _particleSystem.Stop();
     }
 }
