@@ -21,8 +21,8 @@ public class WheelsPickUp : PickupObject
         if (!_playerInTrigger || !Input.GetKey(KeyCode.Space)) return;
         Pickup();
     }
-    
-    public override void Pickup()
+
+    protected override void Pickup()
     {
         base.Pickup();
         

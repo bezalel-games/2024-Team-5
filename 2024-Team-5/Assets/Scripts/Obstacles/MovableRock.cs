@@ -16,6 +16,7 @@ public class MovableRock : Obstacle
     
     public void EnableRock()
     {
+        if(!_rb) _rb = GetComponent<Rigidbody2D>();
         _rb.bodyType = RigidbodyType2D.Dynamic;
     }
 }

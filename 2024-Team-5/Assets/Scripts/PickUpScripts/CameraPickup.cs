@@ -25,18 +25,18 @@ public class CameraPickup : PickupObject
         Pickup();
     }
 
-    public override void Pickup()
+    protected override void Pickup()
     {
         base.Pickup();
-        OnFinisedAnimation += ShowColor;
-        OnFinisedAnimation += SoundManager.Instance.EnableSound;
+        onFinishedAnimation += ShowColor;
+        onFinishedAnimation += SoundManager.Instance.EnableSound;
     }
 
 
     private void ShowColor()
     {
         colorEffect.FixGlitch(colorChangeDuration);
-        OnFinisedAnimation -= ShowColor;
+        onFinishedAnimation -= ShowColor;
     }
 }
 

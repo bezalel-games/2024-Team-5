@@ -23,10 +23,10 @@ public class LightPickUp :PickupObject
         Pickup();
     }
 
-    public override void Pickup()
+    protected override void Pickup()
     {
         base.Pickup();
-        OnFinisedAnimation += ChangeLight;
+        onFinishedAnimation += ChangeLight;
     }
 
     private void ChangeLight()
