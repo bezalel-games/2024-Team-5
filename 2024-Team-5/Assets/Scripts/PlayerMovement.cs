@@ -53,17 +53,17 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         _playerAnimationsManager.SetPlayerAnimation(_movement);
-        // if (_hasWheels)
-        // {
+        if (canMove)
+        {
             _rb.velocity = new Vector2(_movement.x, _movement.y).normalized * speed;
-        // }
+        }
         
-        if (_movement.x > 0 && !flipped)
+        if (_movement.x > 0 && !flipped || _movement.y < 0 && _movement.x == 0 && !flipped)
         {
             Flip();
         }
         
-        else if (_movement.x < 0 && flipped)
+        else if (_movement.x < 0 && flipped || _movement.y > 0 && _movement.x == 0 && flipped)
         {
             Flip();
         }

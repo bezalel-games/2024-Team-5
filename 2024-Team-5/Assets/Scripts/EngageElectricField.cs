@@ -1,24 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EngageElectricField : MonoBehaviour
 {
-    [SerializeField] private GameObject electricField;
     public Animator animator;
+    private static readonly int StartAntenna = Animator.StringToHash("StartAntenna");
+    private static readonly int StopAntenna = Animator.StringToHash("StopAntenna");
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        // electricField.SetActive(true);
-        animator.SetTrigger("StartAntenna");
+        animator.SetTrigger(StartAntenna);
         other.gameObject.GetComponent<ControlPlayerElectricField>().StartLightning();
     }
     
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        // electricField.SetActive(false);
-        animator.SetTrigger("StopAntenna");
+        animator.SetTrigger(StopAntenna);
         other.gameObject.GetComponent<ControlPlayerElectricField>().StopLightning();
 
     }

@@ -29,9 +29,9 @@ public class PickupObject : MonoBehaviour
     }
 
     /**
- * Move an object along a quadratic Bezier curve between two points and then make the manager collect it, and self
- * destruct
- */
+     * Move an object along a quadratic Bezier curve between two points and then make the manager collect it, and self
+     * destruct
+     */
     private IEnumerator MoveObject(Transform pointA, Transform pointB, float duration)
     {
         float elapsedTime = 0f;

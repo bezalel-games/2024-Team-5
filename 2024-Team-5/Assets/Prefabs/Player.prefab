@@ -1257,10 +1257,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf14b0b0c63646498c15664b4314570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  antenaPickup: {fileID: 6046257381954643265}
+  cameraPickup: {fileID: 60065091233324590}
   lightPickup: {fileID: 6166231818655651441}
   burner: {fileID: 7515882175758331253}
   wheels: {fileID: 1120736439416751810}
+  arm: {fileID: 7515882175758331253}
 --- !u!61 &737710007509123386
 BoxCollider2D:
   m_ObjectHideFlags: 0

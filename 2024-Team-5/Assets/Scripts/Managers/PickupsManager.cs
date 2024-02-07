@@ -7,8 +7,9 @@ public class PickupsManager : MonoBehaviour
     [SerializeField] private GameObject lightPickup;
     [SerializeField] private GameObject burner;
     [SerializeField] private GameObject wheels;
+    [SerializeField] private GameObject arm;
     private PlayerMovement _playerMovement;
-    
+    private bool _hasArm;
     private void Awake()
     {
         Instance = Instance == null ? this : Instance;
@@ -23,7 +24,7 @@ public class PickupsManager : MonoBehaviour
                 CollectCamera();
                 break;
             case "Arm":
-                // TODO: CollectArm();
+                CollectArm();
                 break;
             case "Light":
                 CollectLight();
@@ -57,7 +58,18 @@ public class PickupsManager : MonoBehaviour
     {
         burner.SetActive(true);
     }
-    
+
+    private void CollectArm()
+    {
+        arm.SetActive(true);
+        _hasArm = true;
+    }
+
+    public bool HasArm()
+    {
+        return _hasArm;
+    }
+
     public void StopMoving()
     {
         _playerMovement.DisableMove();
