@@ -16349,21 +16349,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ramp
       objectReference: {fileID: 0}
-    - target: {fileID: 8014770534275550287, guid: e7c0907a3745775449d25478e63098b7,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 8.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 8110958411526975891, guid: e7c0907a3745775449d25478e63098b7,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8110958411526975891, guid: e7c0907a3745775449d25478e63098b7,
-        type: 3}
-      propertyPath: m_SpriteSortPoint
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
