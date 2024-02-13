@@ -4,44 +4,46 @@ public class LiftableScript : MonoBehaviour
 {
     private bool canAttach = false;
     private Transform attachTo;
+    
+    private void Start()
+    {
+        attachTo = PickupsManager.Instance.holdPos;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             canAttach = true;
-            attachTo = other.transform;
         }
     }
 
     private void Update()
     {
+        if (!canAttach || !Input.GetKeyDown(KeyCode.Space)) return;
         
-        if (canAttach && Input.GetKeyDown(KeyCode.Space))
+        if (transform.parent == attachTo)
         {
-            if (transform.parent == attachTo)
-            {
-                DetachFromObject();
-                canAttach = false;
-                attachTo = null;
-            }
-            else
-            {
-                AttachToObject();
-            }
+            DetachFromObject();
+            canAttach = false;
+            attachTo = null;
+        }
+        else
+        {
+            AttachToObject();
         }
     }
 
     private void AttachToObject()
     {
-        if (attachTo != null)
-        {
-            transform.SetParent(attachTo);
-        }
+        if (!attachTo) return;
+        transform.SetParent(attachTo);
+        transform.localPosition = Vector3.zero;
     }
 
     private void DetachFromObject()
     {
         transform.parent = null;
+        PickupsManager.Instance.DropObject();
     }
 }

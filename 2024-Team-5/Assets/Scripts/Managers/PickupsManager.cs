@@ -1,6 +1,5 @@
-using System;
+using System.Security.Cryptography;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class PickupsManager : MonoBehaviour
 {
@@ -10,7 +9,11 @@ public class PickupsManager : MonoBehaviour
     [SerializeField] private GameObject burner;
     [SerializeField] private GameObject wheels;
     [SerializeField] private GameObject arm;
+    [SerializeField] private GameObject antenna;
     [SerializeField] private PlayerMovement playerMovement;
+    public GameObject pickup;
+    public Transform holdPos;
+    
     private bool _hasArm;
     private void Awake()
     {
@@ -66,6 +69,11 @@ public class PickupsManager : MonoBehaviour
     {
         burner.SetActive(true);
     }
+    
+    public void CollectAntenna()
+    {
+        antenna.SetActive(true);
+    }
 
     private void CollectArm()
     {
@@ -73,6 +81,30 @@ public class PickupsManager : MonoBehaviour
         _hasArm = true;
         ObstaclesManager.Instance.DisableRocksStatic();
         PlayerInteractions.Instance.SetHasArm(true);
+    }
+
+    public void PickUpObject(GameObject obj)
+    {
+        pickup = obj;
+    }
+    
+    public void DestroyPickup(GameObject obj)
+    {
+        if (obj.name.Contains("Antenna"))
+        {
+            CollectAntenna();
+        }
+        else
+        {
+            //SoneThingELse;
+        }
+        Destroy(pickup);
+        pickup = null;
+    }
+    
+    public void DropObject()
+    {
+        pickup = null;
     }
 
     public bool HasArm()
