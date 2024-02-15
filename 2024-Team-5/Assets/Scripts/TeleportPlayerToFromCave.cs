@@ -7,8 +7,8 @@ using UnityEngine.Rendering.Universal;
 public class TeleportPlayerToFromCave : MonoBehaviour
 {
     private static bool inCave = false;
-    [SerializeField] private Vector2 EnterCavePosition;
-    [SerializeField] private Vector2 ExitCavePosition;
+    [SerializeField] private GameObject EnterCaveObject;
+    [SerializeField] private GameObject ExitCaveObject;
     [SerializeField] private Light2D gameLight;
     [SerializeField] private float transitionDuration = 1f;
     [SerializeField] private float delayDurationAfterTurnBlack = 0.7f; // 1 second delay
@@ -38,7 +38,7 @@ public class TeleportPlayerToFromCave : MonoBehaviour
         
         // Teleport the player
         inCave = !inCave;
-        playerTransform.position = inCave ? ExitCavePosition : EnterCavePosition;
+        playerTransform.position = inCave ? ExitCaveObject.transform.position : EnterCaveObject.transform.position;
         
         // Wait for 1 second with intensity 0
         yield return new WaitForSeconds(delayDurationAfterTurnBlack);
