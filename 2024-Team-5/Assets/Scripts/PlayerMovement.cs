@@ -26,7 +26,11 @@ public class PlayerMovement : MonoBehaviour
     private bool _shakin;
     private int moveDirForAnimation;
     private PlayerAnimationsManager _playerAnimationsManager;
-
+    
+    /**
+     * need to be 1.7 in order to be parallel to the isometric ground
+     */
+    private float Xoffset;
     private void Awake()
     {
         instance = this;
@@ -101,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnMove(InputValue value)
     {
         _movement = value.Get<Vector2>();
+        _movement.x *= Xoffset;
         
         if ((_movement == Vector2.zero || Math.Sign(_movement.x) == Math.Sign(_rb.velocity.x)) && !_shakin)
         {
