@@ -101,7 +101,6 @@ public class PlayerMovement : MonoBehaviour
     private void OnMove(InputValue value)
     {
         _movement = value.Get<Vector2>();
-        // if (_rb.velocity.magnitude > 1f) return;
         
         if ((_movement == Vector2.zero || Math.Sign(_movement.x) == Math.Sign(_rb.velocity.x)) && !_shakin)
         {
@@ -172,5 +171,11 @@ public class PlayerMovement : MonoBehaviour
     {
         return _hasWheels;
     }
-    
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        var position = transform.position;
+        Gizmos.DrawLine(position, _movement * speed + (Vector2)position);
+    }
 }
