@@ -76814,6 +76814,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: CAVE
       objectReference: {fileID: 0}
+    - target: {fileID: 8485796944103482371, guid: 114a8ed1598698c43852419b15e8c4c0,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485796944103482371, guid: 114a8ed1598698c43852419b15e8c4c0,
+        type: 3}
+      propertyPath: m_FalloffIntensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485796944103482371, guid: 114a8ed1598698c43852419b15e8c4c0,
+        type: 3}
+      propertyPath: m_PointLightInnerAngle
+      value: 86.96633
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
