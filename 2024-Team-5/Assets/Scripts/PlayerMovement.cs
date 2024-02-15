@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     /**
      * need to be 1.7 in order to be parallel to the isometric ground
      */
-    private float Xoffset = 1.7;
+    private float Xoffset = 1.7f;
     private void Awake()
     {
         instance = this;
