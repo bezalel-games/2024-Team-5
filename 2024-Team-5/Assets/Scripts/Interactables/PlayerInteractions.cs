@@ -6,11 +6,13 @@ public class PlayerInteractions : MonoBehaviour
    public static PlayerInteractions Instance { get; private set; }
    [SerializeField] private Vector2 checkSize;
    private bool _hasArm;
-
+   private Animator _animator;
+   private static readonly int Arm = Animator.StringToHash("Arm");
 
    private void Awake()
    {
       Instance = Instance == null ? this : Instance;
+      _animator = GetComponent<Animator>();
    }
 
    private void Update()
@@ -23,6 +25,8 @@ public class PlayerInteractions : MonoBehaviour
 
    private void Interact()
    {
+      PlayerAnimationsManager.Instance.StartAnimations();
+      _animator.SetTrigger(Arm);
       var results = Physics2D.OverlapBoxAll(transform.position,
          new Vector2(checkSize.x, checkSize.y), 0, LayerMask.GetMask("Interactable"));
       

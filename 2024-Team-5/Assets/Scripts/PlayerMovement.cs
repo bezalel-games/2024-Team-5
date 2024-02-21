@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
             Flip();
         }
     }
-
+    
     private void Flip()
     {
         if (flipped)
@@ -105,6 +105,14 @@ public class PlayerMovement : MonoBehaviour
     private void OnMove(InputValue value)
     {
         _movement = value.Get<Vector2>();
+        if (_movement == Vector2.zero)
+        {
+            _playerAnimationsManager.StopAnimations();
+        }
+        else
+        {
+            _playerAnimationsManager.StartAnimations();
+        }
         _movement.x *= Xoffset;
         
         if ((_movement == Vector2.zero || Math.Sign(_movement.x) == Math.Sign(_rb.velocity.x)) && !_shakin)
@@ -117,12 +125,6 @@ public class PlayerMovement : MonoBehaviour
         }
         
         Gamepad.current?.SetMotorSpeeds(_motorsSpeed[0],_motorsSpeed[1]);
-    }
-    
-    IEnumerator resumeCollider()
-    {
-        yield return new WaitForSeconds(3f);
-        GetComponent<Collider2D>().isTrigger = false;
     }
     
     [ContextMenu("enable walking")]
@@ -150,26 +152,6 @@ public class PlayerMovement : MonoBehaviour
     {
         speed += 5;
         _hasWheels = true;
-    }
-
-    //TODO: delete?
-    public void Crawl(int dir) // set by animation event
-    {
-        
-        switch (dir)
-        {
-            case 0:
-            {
-                _rb.AddForce(Vector2.right * speed * moveDirForAnimation, ForceMode2D.Impulse);
-                break;
-            }
-            case 1:
-                _rb.AddForce(Vector2.down * speed, ForceMode2D.Impulse);
-                break;
-            case 2:
-                _rb.AddForce(Vector2.up * speed, ForceMode2D.Impulse);
-                break;
-        }
     }
     
     public bool HasWheels()
