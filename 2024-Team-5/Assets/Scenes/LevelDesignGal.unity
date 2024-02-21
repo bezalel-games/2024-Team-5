@@ -109488,36 +109488,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1857843898534662526, guid: d3a194120e206a44d8a90bd7156cc634,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4165195406942366641, guid: d3a194120e206a44d8a90bd7156cc634,
+    - target: {fileID: 6015590350543163851, guid: d3a194120e206a44d8a90bd7156cc634,
         type: 3}
       propertyPath: m_Size.x
-      value: 4.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4165195406942366641, guid: d3a194120e206a44d8a90bd7156cc634,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 5380817150439532278, guid: d3a194120e206a44d8a90bd7156cc634,
-        type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5380817150439532278, guid: d3a194120e206a44d8a90bd7156cc634,
-        type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[1]
-      value: 1436503471
+      value: 6.2
       objectReference: {fileID: 0}
     - target: {fileID: 6015590350543163851, guid: d3a194120e206a44d8a90bd7156cc634,
         type: 3}
-      propertyPath: m_FlipX
-      value: 0
+      propertyPath: m_Size.y
+      value: 6.16
       objectReference: {fileID: 0}
+    - target: {fileID: 6015590350543163851, guid: d3a194120e206a44d8a90bd7156cc634,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2279ef3c0df3d734cbf2088c94c53542,
+        type: 3}
     - target: {fileID: 6457153854136848309, guid: d3a194120e206a44d8a90bd7156cc634,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -109573,7 +109559,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8143952508910159013, guid: d3a194120e206a44d8a90bd7156cc634, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
