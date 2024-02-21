@@ -15,6 +15,8 @@ public class PlayerAnimationsManager : MonoBehaviour
     private void Awake()
     {
         Instance = Instance == null ? this : Instance;
+        SetDownRightAnimation();
+        StopAnimations();
     }
 
 

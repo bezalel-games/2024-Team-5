@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private bool canMove;
     private Rigidbody2D _rb;
     private Vector2 _movement;
-    private bool flipped;
+    private bool flipped = true;
     private bool _hasWheels;
     private Vector2 _motorsSpeed;
     private Vector2 _motorsShake;
