@@ -20,16 +20,19 @@ public class LiftableScript : MonoBehaviour
 
     private void Update()
     {
+        
         if (!canAttach || !Input.GetKeyDown(KeyCode.Space)) return;
+        
         
         if (transform.parent == attachTo)
         {
+            Debug.Log("Detaching from object.");
             DetachFromObject();
             canAttach = false;
-            attachTo = null;
         }
         else
         {
+            Debug.Log("Attaching to object.");
             AttachToObject();
         }
     }
