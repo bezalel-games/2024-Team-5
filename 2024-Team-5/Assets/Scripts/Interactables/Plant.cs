@@ -23,11 +23,4 @@ public class Plant : Interactable
         _anim.SetTrigger(InteractParam);
     }
     
-    /**
-     * set by the animation event
-     */
-    private void SelfDestruct()
-    {
-        Destroy(gameObject);
-    }
 }
