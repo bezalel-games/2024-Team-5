@@ -31,7 +31,8 @@ public class MouseWithAntenna : SwitchableObject
     [ContextMenu("Switch")]
     protected override void Switch()
     {
-        if (!hasAntenna) return;
+        if (hasAntenna && !PickupsManager.Instance.HasTail()) return;
+        Debug.Log("Switched");
         base.Switch();
         _animator.SetBool(StarParameter,true);
     }

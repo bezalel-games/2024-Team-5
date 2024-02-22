@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class LiftableScript : MonoBehaviour
@@ -18,10 +19,18 @@ public class LiftableScript : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            canAttach = false;
+        }
+    }
+
     private void Update()
     {
         
-        if (!canAttach || !Input.GetKeyDown(KeyCode.Space)) return;
+        if (!Input.GetKeyDown(KeyCode.Space)) return;
         
         
         if (transform.parent == attachTo)
@@ -30,7 +39,7 @@ public class LiftableScript : MonoBehaviour
             DetachFromObject();
             canAttach = false;
         }
-        else
+        else if(canAttach)
         {
             Debug.Log("Attaching to object.");
             AttachToObject();
@@ -42,6 +51,7 @@ public class LiftableScript : MonoBehaviour
         if (!attachTo) return;
         transform.SetParent(attachTo);
         transform.localPosition = Vector3.zero;
+        PickupsManager.Instance.PickUpObject(gameObject);
     }
 
     private void DetachFromObject()

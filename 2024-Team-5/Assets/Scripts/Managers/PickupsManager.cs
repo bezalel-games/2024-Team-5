@@ -13,7 +13,7 @@ public class PickupsManager : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     public GameObject pickup;
     public Transform holdPos;
-    
+    private bool _hasTail;
     private bool _hasArm;
     private void Awake()
     {
@@ -86,11 +86,20 @@ public class PickupsManager : MonoBehaviour
     public void PickUpObject(GameObject obj)
     {
         pickup = obj;
+        if (obj.name.Contains("tail"))
+        {
+            _hasTail = true;
+        }
+        else
+        {
+            
+        }
     }
     
-    public void DestroyPickup(GameObject obj)
+    public void UsePickup(GameObject obj)
     {
-        if (obj.name.Contains("Antenna"))
+        Debug.Log(obj.name);
+        if (obj.name.Contains("Mouse"))
         {
             CollectAntenna();
         }
@@ -105,11 +114,17 @@ public class PickupsManager : MonoBehaviour
     public void DropObject()
     {
         pickup = null;
+        _hasTail = false;
     }
 
     public bool HasArm()
     {
         return _hasArm;
+    }
+    
+    public bool HasTail()
+    {
+        return _hasTail;
     }
 
     public void StopMoving()

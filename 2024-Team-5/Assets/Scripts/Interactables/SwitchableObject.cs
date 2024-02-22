@@ -14,7 +14,7 @@ public class SwitchableObject : MonoBehaviour
 
     protected virtual void Switch()
     {
-        PickupsManager.Instance.DestroyPickup(gameObject);
+        PickupsManager.Instance.UsePickup(gameObject);
     }
     
 }
