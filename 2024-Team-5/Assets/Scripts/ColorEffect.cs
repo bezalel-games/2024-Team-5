@@ -29,11 +29,11 @@ public class ColorEffect : MonoBehaviour
         while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
-            digitalGlitch.intensity.value = Mathf.Lerp(startDigitalGlitch, 1, elapsedTime / duration);
-            analogGlitch.colorDrift.value = Mathf.Lerp(startAnalogGlitch, 1, elapsedTime / duration);
+            // digitalGlitch.intensity.value = Mathf.Lerp(startDigitalGlitch, 1, elapsedTime / duration);
+            // analogGlitch.colorDrift.value = Mathf.Lerp(startAnalogGlitch, 1, elapsedTime / duration);
             analogGlitch.scanLineJitter.value = Mathf.Lerp(startScanLine, 1, elapsedTime / duration);
             analogGlitch.verticalJump.value = Mathf.Lerp(startVerticalJump, 1, elapsedTime / duration);
-            analogGlitch.horizontalShake.value = Mathf.Lerp(startHorizontalShake, 1, elapsedTime / duration);
+            // analogGlitch.horizontalShake.value = Mathf.Lerp(startHorizontalShake, 1, elapsedTime / duration);
             yield return null;
         }
         

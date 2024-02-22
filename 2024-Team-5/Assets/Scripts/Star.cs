@@ -11,7 +11,6 @@ public class Star : MonoBehaviour
     [SerializeField] private Sprite mouseDown;
     [SerializeField] private SpriteRenderer mouseRenderer;
     [SerializeField] private float speed = 1;
-
     private Animator _animator;
     private static readonly int Start1 = Animator.StringToHash("Start");
     public Transform caveEntrance;
@@ -30,7 +29,7 @@ public class Star : MonoBehaviour
         StartCoroutine(StopFalling());
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         if (both.transform.position.x > prevBothX)
         {
@@ -42,24 +41,15 @@ public class Star : MonoBehaviour
             both.transform.localScale = new Vector3(1, 1, 1);
         }
         
-        // if (both.transform.position.y > prevBothY)
-        // {
-        //     mouseRenderer.sprite = mouseUp;
-        // }
-        // else if (both.transform.position.y < prevBothY)
-        // {
-        //     mouseRenderer.sprite = mouseDown;
-        // }
-    }
+        if (!isMoving) return;
+        both.transform.position = Vector3.MoveTowards(both.transform.position, caveEntrance.position, speed * Time.deltaTime);
 
-    private void Update()
-    {
+        
         var position = both.transform.position;
         prevBothX = position.x;
         prevBothY = position.y;
-
-        if (!isMoving) return;
-        both.transform.position = Vector3.MoveTowards(both.transform.position, caveEntrance.position, speed * Time.deltaTime);
+        
+        
     }
     
     /**
@@ -69,12 +59,25 @@ public class Star : MonoBehaviour
     {
         isMoving = true;
     }
+
+    private IEnumerator SetAlpha()
+    {
+        float elapsedTime = 0;
+        while (elapsedTime < 1)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Clamp01(elapsedTime / 1);
+            mouseRenderer.color = new Color(1, 1, 1, alpha);
+            yield return null;
+        }
+    }
     
     IEnumerator StopFalling()
     {
         yield return new WaitForSeconds(Random.Range(1,3));
         rb.bodyType = RigidbodyType2D.Static;
         _animator.SetTrigger(Start1);
+        StartCoroutine(SetAlpha());
     }
     
 }

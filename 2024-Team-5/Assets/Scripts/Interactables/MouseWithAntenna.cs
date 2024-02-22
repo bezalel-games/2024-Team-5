@@ -12,16 +12,20 @@ public class MouseWithAntenna : SwitchableObject
     private SpriteRenderer _renderer;
     private float lastX;
     private float lastY;
-
+    private Animator _animator;
     [SerializeField] private int currentPathIndex;
     public float speed;
     private Vector3 lastPosition;
+    private static readonly int Up = Animator.StringToHash("Up");
+    private static readonly int StarParameter = Animator.StringToHash("Star");
 
     private void Start()
     {
+        _animator = GetComponent<Animator>();
         currentSprites = hasAntenna ? beforeSprites : afterSprites;
         _renderer = GetComponentInChildren<SpriteRenderer>();
         lastPosition = holder.transform.position;
+        _animator.SetBool(StarParameter,!hasAntenna);
     }
 
     [ContextMenu("Switch")]
@@ -29,8 +33,7 @@ public class MouseWithAntenna : SwitchableObject
     {
         if (!hasAntenna) return;
         base.Switch();
-        Debug.Log("Switched");
-        currentSprites = afterSprites;
+        _animator.SetBool(StarParameter,true);
     }
 
     private void Update()
@@ -43,22 +46,22 @@ public class MouseWithAntenna : SwitchableObject
 
         if (currentPosition.y - lastPosition.y > threshold)
         {
-            _renderer.sprite = currentSprites[1];
-            _renderer.flipX = true;
+           _animator.SetBool(Up, true);
+            _renderer.flipX = false;
         }
         else if (lastPosition.y - currentPosition.y > threshold)
         {
-            _renderer.sprite = currentSprites[0];
-            _renderer.flipX = false;
+            _animator.SetBool(Up, false);
+            _renderer.flipX = true;
         }
         
         if (currentPosition.x - lastPosition.x > threshold)
         {
-            _renderer.flipX = true;
+            _renderer.flipX = false;
         }
         else if (lastPosition.x - currentPosition.x > threshold)
         {
-            _renderer.flipX = false;
+            _renderer.flipX = true;
         }
 
         lastPosition = currentPosition;
