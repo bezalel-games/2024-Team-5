@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Asset 47world_tiles_v3
+  m_Name: worldtiles_v5-02
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: caa35d86c54a94f59b78f13fd0ee26ad, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e937be00721e9414681358bb13737176, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
