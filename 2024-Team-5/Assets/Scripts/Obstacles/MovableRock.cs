@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class MovableRock : Obstacle
 {
-    private Rigidbody2D _rb;
+    protected Rigidbody2D rb;
 
     private void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public override void RemoveObstacle()
@@ -16,7 +16,7 @@ public class MovableRock : Obstacle
     
     public void EnableRock()
     {
-        if(!_rb) _rb = GetComponent<Rigidbody2D>();
-        _rb.bodyType = RigidbodyType2D.Dynamic;
+        if(!rb) rb = GetComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Dynamic;
     }
 }
