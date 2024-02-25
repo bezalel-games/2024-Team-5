@@ -11,6 +11,7 @@ public class PlayerAnimationsManager : MonoBehaviour
     private static readonly int Down = Animator.StringToHash("Down");
     private static readonly int DownRight = Animator.StringToHash("DownRight");
     private static readonly int ArmNumber = Animator.StringToHash("ArmNum");
+    private static readonly int Antenna = Animator.StringToHash("Antenna");
 
     private void Awake()
     {
@@ -18,7 +19,11 @@ public class PlayerAnimationsManager : MonoBehaviour
         SetDownRightAnimation();
         StopAnimations();
     }
-
+    
+    public void ActivateAntenna()
+    {
+        playerAnimator.SetBool(Antenna, true);
+    }
 
     public void StopAnimations()
     {

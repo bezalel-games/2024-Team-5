@@ -6,6 +6,7 @@ public class PickupsManager : MonoBehaviour
     public static PickupsManager Instance { get; private set; }
     [SerializeField] private GameObject cameraPickup;
     [SerializeField] private GameObject lightPickup;
+    [SerializeField] private GameObject light2DPickup;
     [SerializeField] private GameObject burner;
     [SerializeField] private GameObject wheels;
     [SerializeField] private GameObject arm;
@@ -60,9 +61,10 @@ public class PickupsManager : MonoBehaviour
         cameraPickup.SetActive(true);
     }
 
-    private void CollectLight()
+    public void CollectLight()
     {
-        lightPickup.SetActive(true);
+        // lightPickup.SetActive(true);
+        light2DPickup.SetActive(true);
     }
 
     public void CollectBurner()
@@ -72,7 +74,8 @@ public class PickupsManager : MonoBehaviour
     
     public void CollectAntenna()
     {
-        antenna.SetActive(true);
+        // antenna.SetActive(true);
+        PlayerAnimationsManager.Instance.ActivateAntenna();
     }
 
     private void CollectArm()

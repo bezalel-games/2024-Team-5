@@ -29,7 +29,6 @@ public class PlayerInteractions : MonoBehaviour
       _animator.SetTrigger(Arm);
       var results = Physics2D.OverlapBoxAll(transform.position,
          new Vector2(checkSize.x, checkSize.y), 0, LayerMask.GetMask("Interactable"));
-      
       if (results.Length == 0) return;
       
       results[0].GetComponent<Interactable>().Interact();
