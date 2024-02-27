@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3913,6 +3913,22 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1435261126482092626, guid: 44ea3155a383b5e40a93bc7e27c2ec95,
         type: 3}
+      propertyPath: m_Size.x
+      value: 1.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435261126482092626, guid: 44ea3155a383b5e40a93bc7e27c2ec95,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 5.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435261126482092626, guid: 44ea3155a383b5e40a93bc7e27c2ec95,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9f2e7ed3f002f0c4ba5a837b8d8f0de3,
+        type: 3}
+    - target: {fileID: 1435261126482092626, guid: 44ea3155a383b5e40a93bc7e27c2ec95,
+        type: 3}
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
@@ -3920,6 +3936,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayerID
       value: -1268096619
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435261126482092626, guid: 44ea3155a383b5e40a93bc7e27c2ec95,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6491709371944858286, guid: 44ea3155a383b5e40a93bc7e27c2ec95,
         type: 3}
@@ -3929,7 +3950,7 @@ PrefabInstance:
     - target: {fileID: 6491709371944858286, guid: 44ea3155a383b5e40a93bc7e27c2ec95,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6678787177860542098, guid: 44ea3155a383b5e40a93bc7e27c2ec95,
         type: 3}
@@ -5646,6 +5667,11 @@ PrefabInstance:
     - target: {fileID: 6457153854136848309, guid: d3a194120e206a44d8a90bd7156cc634,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515882175758331253, guid: d3a194120e206a44d8a90bd7156cc634,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8578371069326926962, guid: d3a194120e206a44d8a90bd7156cc634,
