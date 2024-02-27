@@ -22,10 +22,10 @@ public class PickupsManager : MonoBehaviour
         // At the moment we start with an arm
     }
 
-    private void Start()
-    {
-        CollectArm();
-    }
+    // private void Start()
+    // {
+    //     // CollectArm();
+    // }
 
     public void CollectObject(GameObject obj)
     {
