@@ -1,3 +1,4 @@
+using System;
 using System.Security.Cryptography;
 using UnityEngine;
 
@@ -26,6 +27,7 @@ public class PickupsManager : MonoBehaviour
     // {
     //     // CollectArm();
     // }
+    
 
     public void CollectObject(GameObject obj)
     {

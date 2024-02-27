@@ -26,7 +26,7 @@ public class CameraControl : MonoBehaviour
     {
         float time = 0;
         float startSize = vcam.m_Lens.OrthographicSize; // Store the starting size
-
+        Debug.Log($"startSize: {startSize}");
         while (time < zoomDuration)
         {
             time += Time.deltaTime;
@@ -43,5 +43,6 @@ public class CameraControl : MonoBehaviour
 
         // Ensure the final size is set exactly to zoomSize
         vcam.m_Lens.OrthographicSize = zoomSize;
+        Debug.Log($"vcam.m_Lens.OrthographicSize: {vcam.m_Lens.OrthographicSize}");
     }
 }

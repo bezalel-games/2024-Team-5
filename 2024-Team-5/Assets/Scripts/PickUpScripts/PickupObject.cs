@@ -15,7 +15,7 @@ public class PickupObject : MonoBehaviour
         rendererTransform.GetComponent<SpriteRenderer>().sortingOrder = 10;
         PickupsManager.Instance.StopMoving();
         GetComponent<Animator>().SetTrigger(Connect);
-        CameraControl.Instance.Zoom(20, 2);
+        CameraControl.Instance.Zoom(7, 2);
     }
 
 
@@ -55,7 +55,7 @@ public class PickupObject : MonoBehaviour
         onFinishedAnimation?.Invoke();
         PickupsManager.Instance.CollectObject(gameObject);
         PickupsManager.Instance.StartMoving();
-        CameraControl.Instance.Zoom(30, 2);
+        CameraControl.Instance.Zoom(6, 2);
         ControlPlayerElectricField.Instance.StopLightning();
         Destroy(gameObject);
     }
