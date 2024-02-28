@@ -14,6 +14,7 @@ public class TreeFlup : MonoBehaviour
         {
             animator.SetTrigger("Flup");
         }
+      
     }
     
 }
