@@ -15,6 +15,7 @@ public class Monster : Interactable
         if (!_mouthOpen || !hasFlashlight) return;
         PickupsManager.Instance.CollectLight();
         hasFlashlight = false;
+        _anim.SetBool(HasFlashlight, false);
     }
 
     private void Start()

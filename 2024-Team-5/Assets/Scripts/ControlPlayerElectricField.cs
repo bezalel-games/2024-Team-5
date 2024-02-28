@@ -8,29 +8,32 @@ public class ControlPlayerElectricField : MonoBehaviour
     [SerializeField] GameObject lightning;
     public static ControlPlayerElectricField Instance { get; private set; }
     public Animator animator;
+    private static readonly int StartAntenna = Animator.StringToHash("StartAntenna");
+    private static readonly int StopAntenna = Animator.StringToHash("StopAntenna");
+
     private void Awake()
     {
         Instance = Instance == null ? this : Instance;
     }
     
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Lightning"))
-        {
-            // lightning.SetActive(true);
-            animator.SetTrigger("StartAntenna");
-            
-        }
-    }
-    
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Lightning"))
-        {
-            // lightning.SetActive(false);
-            animator.SetTrigger("StopAntenna");
-        }
-    }
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.CompareTag("Lightning"))
+    //     {
+    //         // lightning.SetActive(true);
+    //         animator.SetTrigger(StartAntenna);
+    //         
+    //     }
+    // }
+    //
+    // private void OnTriggerExit2D(Collider2D other)
+    // {
+    //     if (other.CompareTag("Lightning"))
+    //     {
+    //         // lightning.SetActive(false);
+    //         animator.SetTrigger(StopAntenna);
+    //     }
+    // }
     
     public void StopLightning()
     {
