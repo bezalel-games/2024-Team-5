@@ -21,6 +21,7 @@ public class PickupsManager : MonoBehaviour
     {
         Instance = Instance == null ? this : Instance;
         // At the moment we start with an arm
+        CollectArm();
     }
 
     // private void Start()

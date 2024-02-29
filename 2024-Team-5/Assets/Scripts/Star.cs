@@ -7,8 +7,6 @@ public class Star : MonoBehaviour
     [SerializeField] private GameObject star;
     [SerializeField] private GameObject both;
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Sprite mouseUp;
-    [SerializeField] private Sprite mouseDown;
     [SerializeField] private SpriteRenderer mouseRenderer;
     [SerializeField] private float speed = 1;
     private Animator _animator;
@@ -16,7 +14,6 @@ public class Star : MonoBehaviour
     public Transform caveEntrance;
 
     private float prevBothX;
-    private float prevBothY;
     private float dstTravelled;
     private bool isMoving;
 
@@ -47,9 +44,6 @@ public class Star : MonoBehaviour
         
         var position = both.transform.position;
         prevBothX = position.x;
-        prevBothY = position.y;
-        
-        
     }
     
     /**
@@ -74,7 +68,7 @@ public class Star : MonoBehaviour
     
     IEnumerator StopFalling()
     {
-        yield return new WaitForSeconds(Random.Range(1,3));
+        yield return new WaitForSeconds(Random.Range(1f,2f));
         rb.bodyType = RigidbodyType2D.Static;
         _animator.SetTrigger(Start1);
         StartCoroutine(SetAlpha());
