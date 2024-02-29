@@ -1,9 +1,8 @@
+using System;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class MovableWaterRock : MovableRock
 {
-    [SerializeField] private Tilemap waterTileMap;
     private void OnTriggerStay2D(Collider2D other)  
     {
         var block = other.GetComponent<WaterBlock>();

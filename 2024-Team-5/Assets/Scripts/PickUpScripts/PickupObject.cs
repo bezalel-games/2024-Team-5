@@ -12,7 +12,7 @@ public class PickupObject : MonoBehaviour
 
     protected virtual void Pickup()
     {
-        rendererTransform.GetComponent<SpriteRenderer>().sortingOrder = 10;
+        rendererTransform.GetComponent<SpriteRenderer>().sortingOrder = 19;
         PickupsManager.Instance.StopMoving();
         GetComponent<Animator>().SetTrigger(Connect);
         CameraControl.Instance.Zoom(7, 2);
