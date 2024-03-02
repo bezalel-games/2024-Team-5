@@ -25,7 +25,7 @@ public class PickupsManager : MonoBehaviour
 
     private void Start()
     {
-        CollectArm();
+       
     }
     
 
