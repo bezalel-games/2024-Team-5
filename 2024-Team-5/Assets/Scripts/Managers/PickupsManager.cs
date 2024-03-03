@@ -7,6 +7,7 @@ public class PickupsManager : MonoBehaviour
 {
     public static PickupsManager Instance { get; private set; }
     [SerializeField] private GameObject cameraPickup;
+    [SerializeField] private GameObject antennaCamera;
     [SerializeField] private GameObject flashLight;
     [SerializeField] private GameObject light2DPickup;
     [SerializeField] private GameObject burner;
@@ -78,8 +79,10 @@ public class PickupsManager : MonoBehaviour
     
     public void CollectAntenna()
     {
-        // antenna.SetActive(true);
+        cameraPickup.SetActive(false);
+        antennaCamera.SetActive(true);
         PlayerAnimationsManager.Instance.ActivateAntenna();
+        GoToEndScene.instance.StartFadeOut();
     }
 
     private void CollectArm()
@@ -97,10 +100,6 @@ public class PickupsManager : MonoBehaviour
         {
             _hasTail = true;
         }
-        else
-        {
-            
-        }
     }
     
     public void UsePickup(GameObject obj)
@@ -109,10 +108,6 @@ public class PickupsManager : MonoBehaviour
         if (obj.name.Contains("Mouse"))
         {
             CollectAntenna();
-        }
-        else
-        {
-            //SoneThingELse;
         }
         Destroy(pickup);
         pickup = null;
