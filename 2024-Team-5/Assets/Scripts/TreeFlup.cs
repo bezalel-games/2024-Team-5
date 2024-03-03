@@ -1,20 +1,23 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class TreeFlup : MonoBehaviour
+public class TreeFlup : Interactable
 {
     [SerializeField] private Animator animator;
+    private static readonly int Flup = Animator.StringToHash("Flup");
 
 
-    private void OnCollisionStay2D(Collision2D other)
+    public override void Interact()
     {
-        if (other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Space))
-        {
-            animator.SetTrigger("Flup");
-        }
-      
+        animator.SetTrigger(Flup);
     }
+    
+    // private void OnCollisionStay2D(Collision2D other)
+    // {
+    //     if (other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Space))
+    //     {
+    //         animator.SetTrigger("Flup");
+    //     }
+    //   
+    // }
     
 }

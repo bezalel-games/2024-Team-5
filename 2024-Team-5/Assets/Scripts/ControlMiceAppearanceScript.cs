@@ -22,9 +22,9 @@ public class ControlMiceAppearanceScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.K))
-        {
-            ChangeMiceAppearance();
-        }
+        // if (Input.GetKeyUp(KeyCode.K))
+        // {
+        //     ChangeMiceAppearance();
+        // }
     }
 }

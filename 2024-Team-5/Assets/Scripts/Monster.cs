@@ -16,6 +16,7 @@ public class Monster : Interactable
         PickupsManager.Instance.CollectLight();
         hasFlashlight = false;
         _anim.SetBool(HasFlashlight, false);
+        ControlMiceAppearanceScript.Instance.ChangeMiceAppearance();
     }
 
     private void Start()
