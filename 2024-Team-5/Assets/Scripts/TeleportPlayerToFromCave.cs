@@ -12,7 +12,7 @@ public class TeleportPlayerToFromCave : MonoBehaviour
     [SerializeField] private Light2D gameLight;
     [SerializeField] private float transitionDuration = 1f;
     [SerializeField] private float delayDurationAfterTurnBlack = 0.7f; // 1 second delay
-    [SerializeField] float caveLightIntensity = 0.05f;
+    [SerializeField] float caveLightIntensity = 0.00f;
     [SerializeField] private GameObject PlayerLight;
     [SerializeField] private GameObject light;
 
@@ -20,6 +20,7 @@ public class TeleportPlayerToFromCave : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            PlayerMovement.instance.DisableMove();
             StartCoroutine(TeleportPlayer(other.transform));
         }
     }
@@ -76,5 +77,7 @@ public class TeleportPlayerToFromCave : MonoBehaviour
                 light.SetActive(false);
             }
         }
+        PlayerMovement.instance.EnableMove();
+
     }
 }

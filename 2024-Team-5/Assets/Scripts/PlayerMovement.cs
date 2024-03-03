@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     private float Xoffset = 1.7f;
     private void Awake()
     {
-        instance = this;
+        instance = instance == null ? this : instance;
         canMove = true;
     }
 
