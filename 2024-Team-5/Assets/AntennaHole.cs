@@ -21,6 +21,7 @@ public class AntennaHole : MonoBehaviour
     {
         holeRenderer.sprite = filledHoleSprite;
         animator.SetTrigger("Fill");
+        ControlMiceAppearanceScript.Instance.ChangeMiceAppearance();
     }
     
     private void OnTriggerEnter2D(Collider2D other)
