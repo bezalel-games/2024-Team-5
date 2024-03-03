@@ -563,7 +563,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6382564707044313805
 Transform:
   m_ObjectHideFlags: 0
@@ -572,13 +572,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5872576896322788104}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0, z: -0.8960648, w: 0.4439233}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 1.24, y: -0.6, z: 0}
   m_LocalScale: {x: 2.6300004, y: 3.7400002, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1857843898534662526}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!114 &5380817150439532278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,10 +616,10 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 42.07
-  m_PointLightOuterAngle: 42.07
-  m_PointLightInnerRadius: 2
-  m_PointLightOuterRadius: 14.095426
+  m_PointLightInnerAngle: 40.9
+  m_PointLightOuterAngle: 40.9
+  m_PointLightInnerRadius: 4
+  m_PointLightOuterRadius: 5
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -1293,7 +1293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ddcc2625bc1b8428f78932fbccd5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
   leftMotorSpeed: 0.005
   rightMotorSpeed: 0
   renderer: {fileID: 5898311741446313571}
@@ -1469,7 +1469,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1268096619
   m_SortingLayer: 1
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_SortAtRoot: 0
 --- !u!114 &3596755107154863891
 MonoBehaviour:
