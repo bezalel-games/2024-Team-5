@@ -27,6 +27,7 @@ public class TeleportPlayerToFromCave : MonoBehaviour
     private IEnumerator TeleportPlayer(Transform playerTransform)
     {
         // Fade out the light
+        Debug.Log("Teleporting player");
         float elapsedTime = 0f;
         float startIntensity = gameLight.intensity;
         while (elapsedTime < transitionDuration)
