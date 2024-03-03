@@ -1,12 +1,13 @@
 using System;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PickupsManager : MonoBehaviour
 {
     public static PickupsManager Instance { get; private set; }
     [SerializeField] private GameObject cameraPickup;
-    [SerializeField] private GameObject lightPickup;
+    [SerializeField] private GameObject flashLight;
     [SerializeField] private GameObject light2DPickup;
     [SerializeField] private GameObject burner;
     [SerializeField] private GameObject wheels;
@@ -66,7 +67,7 @@ public class PickupsManager : MonoBehaviour
 
     public void CollectLight()
     {
-        // lightPickup.SetActive(true);
+        flashLight.SetActive(true);
         light2DPickup.SetActive(true);
     }
 

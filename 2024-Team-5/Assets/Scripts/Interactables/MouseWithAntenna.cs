@@ -43,7 +43,7 @@ public class MouseWithAntenna : SwitchableObject
         Move();
         Vector3 currentPosition = holder.transform.position;
 
-        float threshold = 0.01f; // Define your threshold value here
+        float threshold = 0.001f; // Define your threshold value here
 
         if (currentPosition.y - lastPosition.y > threshold)
         {

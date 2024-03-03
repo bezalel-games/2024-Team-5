@@ -6,7 +6,7 @@ using UnityEngine;
 public class ControlMiceAppearanceScript : MonoBehaviour
 {
     public static ControlMiceAppearanceScript Instance { get; private set; }
-    private bool isMiceVisible = true;
+    private bool isMiceVisible = false;
     [SerializeField] private GameObject mouses;
 
     private void Awake()
