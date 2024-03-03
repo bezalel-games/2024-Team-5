@@ -4,16 +4,17 @@ using UnityEngine;
 public class Monster : Interactable
 {
     public bool hasFlashlight;
-
+    public GameObject flashlight;
     private bool _mouthOpen;
     private Animator _anim;
     private static readonly int HasFlashlight = Animator.StringToHash("HasFlashlight");
     private static readonly int In = Animator.StringToHash("OpenClose");
-
+    
     public override void Interact()
     {
         if (!_mouthOpen || !hasFlashlight) return;
-        PickupsManager.Instance.CollectLight();
+        flashlight.SetActive(true);
+        // PickupsManager.Instance.CollectLight();
         hasFlashlight = false;
         _anim.SetBool(HasFlashlight, false);
         ControlMiceAppearanceScript.Instance.ChangeMiceAppearance();

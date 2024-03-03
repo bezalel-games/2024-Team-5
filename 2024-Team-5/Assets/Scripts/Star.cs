@@ -30,12 +30,12 @@ public class Star : MonoBehaviour
     {
         if (both.transform.position.x > prevBothX)
         {
-            both.transform.localScale = new Vector3(-1, 1, 1);
+            both.transform.localScale = new Vector3(1, 1, 1);
         }
         
         else if (both.transform.position.x < prevBothX)
         {
-            both.transform.localScale = new Vector3(1, 1, 1);
+            both.transform.localScale = new Vector3(-1, 1, 1);
         }
         
         if (!isMoving) return;
@@ -68,7 +68,7 @@ public class Star : MonoBehaviour
     
     IEnumerator StopFalling()
     {
-        yield return new WaitForSeconds(Random.Range(1f,2f));
+        yield return new WaitForSeconds(Random.Range(0.5f,1f));
         rb.bodyType = RigidbodyType2D.Static;
         _animator.SetTrigger(Start1);
         StartCoroutine(SetAlpha());

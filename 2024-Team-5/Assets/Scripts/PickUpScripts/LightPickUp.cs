@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class LightPickUp :PickupObject
@@ -5,32 +6,11 @@ public class LightPickUp :PickupObject
     [SerializeField] private int intensity = 1;
     bool playerInTrigger;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void Start()
     {
-        if (!other.CompareTag("Player")) return;
-        playerInTrigger = true;
-    }
-    
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (!other.CompareTag("Player")) return;
-        playerInTrigger = false;
-    }
-    
-    private void Update()
-    {
-        if (!playerInTrigger || !Input.GetKey(KeyCode.Space)) return;
         Pickup();
     }
 
-    protected override void Pickup()
-    {
-        base.Pickup();
-        onFinishedAnimation += ChangeLight;
-    }
 
-    private void ChangeLight()
-    {
-        // LightsManager.Instance.SetGlobalLightIntensity(intensity);
-    }
+    
 }
