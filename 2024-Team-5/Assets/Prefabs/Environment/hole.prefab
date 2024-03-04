@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: -1268096619
   m_SortingLayer: 1
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 2c8044d941cde3746b1bb3f51bdfdd07, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7a7306ca5bef23041a150ad6b530f1cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,18 +121,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0089354515, y: -0.072044134}
+  m_Offset: {x: -0.075805664, y: -0.098199844}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.18, y: 1.45}
+    oldSize: {x: 3.735, y: 2.215}
     newSize: {x: 3.18, y: 1.45}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.4620233, y: 1.893748}
+  m_Size: {x: 2.859497, y: 2.0449715}
   m_EdgeRadius: 0
 --- !u!114 &8973821919818666157
 MonoBehaviour:
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd4a996b8621e0d4e818339ddd30c5ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filledHoleSprite: {fileID: 21300000, guid: 847401d1327a7774b9041acbec6d1032, type: 3}
+  filledHoleSprite: {fileID: 21300000, guid: c3356385b957c2e4e988c631e2eaf1d1, type: 3}
   holeRenderer: {fileID: 8159147187172164530}
   bubbles: {fileID: 3976225548881374805}
   Colliders:
@@ -184,8 +184,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12, y: -0.07}
-  m_Size: {x: 1.7335638, y: 1.7335638}
+  m_Offset: {x: -0.08908844, y: -0.04527259}
+  m_Size: {x: 1.8325043, y: 1.894321}
   m_Direction: 0
 --- !u!82 &2398095329175767872
 AudioSource:
@@ -207,7 +207,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.0432739
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -385,6 +385,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8515940191755797073, guid: 431f226721c59c042aa9ea6020130700,
         type: 3}
+      propertyPath: ColorModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515940191755797073, guid: 431f226721c59c042aa9ea6020130700,
+        type: 3}
       propertyPath: ShapeModule.m_Scale.x
       value: 1.6
       objectReference: {fileID: 0}
@@ -396,12 +401,27 @@ PrefabInstance:
     - target: {fileID: 8515940191755797073, guid: 431f226721c59c042aa9ea6020130700,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8515940191755797073, guid: 431f226721c59c042aa9ea6020130700,
         type: 3}
       propertyPath: InitialModule.startSize.minScalar
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515940191755797073, guid: 431f226721c59c042aa9ea6020130700,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515940191755797073, guid: 431f226721c59c042aa9ea6020130700,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515940191755797073, guid: 431f226721c59c042aa9ea6020130700,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8515940191755797073, guid: 431f226721c59c042aa9ea6020130700,
         type: 3}

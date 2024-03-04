@@ -29,12 +29,12 @@ public class Plant : Interactable
         spriteRenderer.sprite = floatingSprite;
         _col.enabled = false;
         _anim.SetTrigger(InteractParam);
-        Destroy(shadow);
+        // Destroy(shadow);
     }
     
     public void SelfDestruct()
     {
-        Destroy(gameObject);
+        // Destroy(gameObject);
     }
 
     IEnumerator StartAnimation()
