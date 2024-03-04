@@ -298,6 +298,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7561760402597203298, guid: 431f226721c59c042aa9ea6020130700,
         type: 3}
+      propertyPath: burst
+      value: 
+      objectReference: {fileID: 7989849019076950079, guid: 92ee17f80e07b8a42883c4af978ea989,
+        type: 3}
+    - target: {fileID: 7561760402597203298, guid: 431f226721c59c042aa9ea6020130700,
+        type: 3}
       propertyPath: burstForce
       value: 1
       objectReference: {fileID: 0}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class AntennaHole : MonoBehaviour
@@ -10,6 +11,8 @@ public class AntennaHole : MonoBehaviour
     private Animator animator;
     [SerializeField] private Collider2D[] Colliders;
     public GameObject mouse;
+    public GameObject burst;
+    public Transform bubblePosition;
     private void Start()
     {
         holeRenderer = GetComponent<SpriteRenderer>();
@@ -22,6 +25,7 @@ public class AntennaHole : MonoBehaviour
         holeRenderer.sprite = filledHoleSprite;
         animator.SetTrigger("Fill");
         ControlMiceAppearanceScript.Instance.ChangeMiceAppearance();
+        Instantiate(burst, bubblePosition.position, quaternion.identity);
     }
     
     private void OnTriggerEnter2D(Collider2D other)
