@@ -8,6 +8,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3149138553230877304, guid: 178c1f03bfd8aca4b9901512460b17e2,
+        type: 3}
+      propertyPath: floatingSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 99b6739ecfc9ae9439888eaf5f380d0d,
+        type: 3}
     - target: {fileID: 3783546587363879492, guid: 178c1f03bfd8aca4b9901512460b17e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -62,6 +68,37 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BluePlant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539132267840555678, guid: 178c1f03bfd8aca4b9901512460b17e2,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.25016785
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539132267840555678, guid: 178c1f03bfd8aca4b9901512460b17e2,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.53930855
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539132267840555678, guid: 178c1f03bfd8aca4b9901512460b17e2,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0020980835
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539132267840555678, guid: 178c1f03bfd8aca4b9901512460b17e2,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -1.3654509
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262315132167891942, guid: 178c1f03bfd8aca4b9901512460b17e2,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5189e6bcbf62b6e4faef04ddc6f09ac3,
+        type: 3}
+    - target: {fileID: 8262315132167891942, guid: 178c1f03bfd8aca4b9901512460b17e2,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
