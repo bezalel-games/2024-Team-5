@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource thunderSound;
     [SerializeField] private float thunderWaitTime = 1;
     [SerializeField] private AudioSource connectSound;
+    [SerializeField] private AudioSource wheelsSound;
     public static SoundManager Instance { get; private set; }
     
     private void Awake() {
@@ -52,5 +53,11 @@ public class SoundManager : MonoBehaviour
     public void PlayConnectSound()
     {
         connectSound.Play();
+    }
+    
+    public void PlayWheelsSound()
+    {
+        if (wheelsSound.isPlaying) return;
+        wheelsSound.Play();
     }
 }

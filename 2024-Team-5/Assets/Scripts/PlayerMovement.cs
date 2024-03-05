@@ -47,6 +47,10 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
          Move();
+         if (_hasWheels && _rb.velocity.magnitude > 0)
+         {
+             SoundManager.Instance.PlayWheelsSound();
+         }
     }
 
     private void Move()
