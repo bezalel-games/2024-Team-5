@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3165288020083463309
 Transform:
   m_ObjectHideFlags: 0
@@ -177,7 +177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7511390660942376134
 Transform:
   m_ObjectHideFlags: 0
@@ -187,7 +187,7 @@ Transform:
   m_GameObject: {fileID: 1265442594157548640}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.67999697, y: 3.0900006, z: 0}
+  m_LocalPosition: {x: 0.679997, y: 3.0900006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -234,7 +234,7 @@ SpriteRenderer:
   m_SortingLayerID: -1268096619
   m_SortingLayer: 1
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: e71a8710e0586d74abc9489ca2a384cc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0aafd0d0c6757fd409683ae4474fa12c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -459,8 +459,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
   m_LightType: 3
-  m_BlendStyleIndex: 2
-  m_FalloffIntensity: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.507
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.8
   m_LightVolumeIntensity: 1
@@ -482,10 +482,10 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 89.67
-  m_PointLightOuterAngle: 89.67
-  m_PointLightInnerRadius: 4
-  m_PointLightOuterRadius: 10.32745
+  m_PointLightInnerAngle: 21.38
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 5.5088525
+  m_PointLightOuterRadius: 22.845453
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -584,7 +584,7 @@ SpriteRenderer:
   m_SortingLayerID: -1268096619
   m_SortingLayer: 1
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 4918054886105e94991393a5ba4e47ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1375729dbd2b69e4b9e15378ca438836, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -695,7 +695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6916152226386114759
 Transform:
   m_ObjectHideFlags: 0
@@ -1011,7 +1011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ddcc2625bc1b8428f78932fbccd5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 6
   leftMotorSpeed: 0.005
   rightMotorSpeed: 0
   renderer: {fileID: 5898311741446313571}
