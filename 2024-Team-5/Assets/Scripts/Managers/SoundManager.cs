@@ -45,6 +45,6 @@ public class SoundManager : MonoBehaviour
         rainSoundtrack.Play();
         
         yield return new WaitForSeconds(thunderWaitTime);
-        thunderSound.Play();
+        
     }
 }
