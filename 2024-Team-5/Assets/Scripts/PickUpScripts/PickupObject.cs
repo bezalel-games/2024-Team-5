@@ -56,7 +56,7 @@ public class PickupObject : MonoBehaviour
         onFinishedAnimation?.Invoke();
         PickupsManager.Instance.CollectObject(gameObject);
         PickupsManager.Instance.StartMoving();
-        CameraControl.Instance.Zoom(6, 2);
+        CameraControl.Instance.Zoom(8, 2);
         ControlPlayerElectricField.Instance.StopLightning();
         Destroy(gameObject);
     }
