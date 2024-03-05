@@ -28,7 +28,7 @@ public class SoundManager : MonoBehaviour
         }
         gameWhiteNoiseAudioSource.volume = 0;
         
-        StartCoroutine(WaitAndPlaySound());
+        //StartCoroutine(WaitAndPlaySound());
     }
     
     public void DisableSound()
@@ -40,14 +40,14 @@ public class SoundManager : MonoBehaviour
         gameWhiteNoiseAudioSource.volume = 0.7f;
     }
     
-    private IEnumerator WaitAndPlaySound()
-    {
-        yield return new WaitForSeconds(thunderWaitTime);
-        rainSoundtrack.Play();
+    //private IEnumerator WaitAndPlaySound()
+    //{
+        //yield return new WaitForSeconds(thunderWaitTime);
+        //rainSoundtrack.Play();
         
-        yield return new WaitForSeconds(thunderWaitTime);
+        //yield return new WaitForSeconds(thunderWaitTime);
         
-    }
+    //}
     
     public void PlayConnectSound()
     {
