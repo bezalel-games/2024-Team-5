@@ -36,7 +36,7 @@ public class PickupObject : MonoBehaviour
     private IEnumerator MoveObject(Transform pointA, Transform pointB, float duration)
     {
         float elapsedTime = 0f;
-
+        SoundManager.Instance.PlayConnectSound();
         while (elapsedTime < duration)
         {
             // Update the elapsed time
@@ -52,7 +52,7 @@ public class PickupObject : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        SoundManager.Instance.PlayConnectSound();
+        
         onFinishedAnimation?.Invoke();
         PickupsManager.Instance.CollectObject(gameObject);
         PickupsManager.Instance.StartMoving();
