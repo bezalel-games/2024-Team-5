@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource rainSoundtrack;
     [SerializeField] private AudioSource thunderSound;
     [SerializeField] private float thunderWaitTime = 1;
+    [SerializeField] private AudioSource connectSound;
     public static SoundManager Instance { get; private set; }
     
     private void Awake() {
@@ -46,5 +47,10 @@ public class SoundManager : MonoBehaviour
         
         yield return new WaitForSeconds(thunderWaitTime);
         
+    }
+    
+    public void PlayConnectSound()
+    {
+        connectSound.Play();
     }
 }

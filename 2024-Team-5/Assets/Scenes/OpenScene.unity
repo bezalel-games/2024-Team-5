@@ -906,7 +906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3ac47426946ec458fa717c4dcc07f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNameToOpen: Game1
+  sceneNameToOpen: Game 1
   mainVideoDisplay: {fileID: 238694818}
   crashVideoPlayer: {fileID: 2072871920}
   crashVideoDisplay: {fileID: 1534200311}

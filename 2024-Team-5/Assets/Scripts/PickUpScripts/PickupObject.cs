@@ -9,6 +9,7 @@ public class PickupObject : MonoBehaviour
     public Transform rendererTransform;
     protected Action onFinishedAnimation;
     private static readonly int Connect = Animator.StringToHash("Connect");
+    
 
     protected virtual void Pickup()
     {
@@ -51,7 +52,7 @@ public class PickupObject : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
+        SoundManager.Instance.PlayConnectSound();
         onFinishedAnimation?.Invoke();
         PickupsManager.Instance.CollectObject(gameObject);
         PickupsManager.Instance.StartMoving();
