@@ -388,7 +388,12 @@ PrefabInstance:
     - target: {fileID: 1528729730098726964, guid: 877b9a3b24b916d42835a4f142474fbb,
         type: 3}
       propertyPath: MinDistance
-      value: 0.38948822
+      value: 0.138443
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528729730098726964, guid: 877b9a3b24b916d42835a4f142474fbb,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4353393891969444989, guid: 877b9a3b24b916d42835a4f142474fbb,
         type: 3}
