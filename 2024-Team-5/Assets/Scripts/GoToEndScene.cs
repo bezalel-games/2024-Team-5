@@ -13,6 +13,7 @@ public class GoToEndScene : MonoBehaviour
     public float duration = 4f; // Duration of the fade and zoom in seconds.
     public float startFOV = 8f; // Starting field of view, adjust as needed.
     public float endFOV = 4f; // Ending field of view for zoom effect, adjust as needed.
+    public float delayBeforeStart = 1f;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class GoToEndScene : MonoBehaviour
 
     IEnumerator FadeOutEffect()
     {
+        yield return new WaitForSeconds(delayBeforeStart);
         float currentTime = 0f;
         camera.m_Lens.OrthographicSize = startFOV;
         while (currentTime < duration)
@@ -42,10 +44,4 @@ public class GoToEndScene : MonoBehaviour
         // Once the effect is complete, load the next scene.
         SceneManager.LoadSceneAsync("EndScene");
     }
-
-    // private void Update()
-    // {
-    //     if(Input.GetKeyDown(KeyCode.Space))
-    //         StartFadeOut();
-    // }
 }
