@@ -15,6 +15,23 @@ public class PlayerAnimationsManager : MonoBehaviour
     private static readonly int Antenna = Animator.StringToHash("Antenna");
     
     
+    [SerializeField] private GameObject trailLeftRight;
+    [SerializeField] private GameObject trailUpDown;
+    [SerializeField] private GameObject trailDiagonalDown;
+    [SerializeField] private GameObject trailDiagonalUp;
+    [SerializeField] private SpriteRenderer renderer;
+    private float timeBtwTrails;
+    public float startTimeBtwTrails;
+    private bool _hasWheels;
+    private void Update()
+    {
+        CreateTrails();
+    }
+
+    private void Start()
+    {
+        timeBtwTrails = startTimeBtwTrails;
+    }
     private void Awake()
     {
         Instance = Instance == null ? this : Instance;
@@ -123,5 +140,46 @@ public class PlayerAnimationsManager : MonoBehaviour
         playerAnimator.SetBool(DownRight, false);
         playerAnimator.SetInteger(ArmNumber, 4);
         holdPos.Down();
+    }
+
+    private void CreateTrails()
+    {
+        if (!_hasWheels) return;
+        if (timeBtwTrails <= 0)
+        {
+            var trail = trailLeftRight;
+            switch (playerAnimator.GetInteger(ArmNumber))
+            {
+                case 0:
+                    trail = trailUpDown;
+                    break;
+                case 1:
+                    trail = trailDiagonalUp;
+                    trail.GetComponent<SpriteRenderer>().flipX = Mathf.Sign(renderer.transform.localScale.x) < 0;
+                    break;
+                case 2:
+                    trail = trailLeftRight;
+                    break;
+                case 3:
+                    trail = trailDiagonalDown;
+                    trail.GetComponent<SpriteRenderer>().flipX = Mathf.Sign(renderer.transform.localScale.x) < 0;
+                    break;
+                case 4:
+                    trail = trailUpDown;
+                    break;
+            }
+            var newTrail = Instantiate(trail, transform.position, Quaternion.identity);
+            Destroy(newTrail, 0.5f);
+            timeBtwTrails = startTimeBtwTrails;
+        }
+        else
+        {
+            timeBtwTrails -= Time.deltaTime;
+        }
+    }
+
+    public void setWheels()
+    {
+        _hasWheels = true;
     }
 }

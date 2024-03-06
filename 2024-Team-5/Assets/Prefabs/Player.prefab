@@ -1178,6 +1178,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdPos: {fileID: 5318932153504722812}
   playerAnimator: {fileID: 350471779385924230}
+  trailLeftRight: {fileID: 3544375971023313347, guid: 7d4fea781299a9b4eba3430a861a7d5e,
+    type: 3}
+  trailUpDown: {fileID: 7825787575059058097, guid: da1e203f02597424bafbd23c7e8bafbd,
+    type: 3}
+  trailDiagonalDown: {fileID: 9085823957980267990, guid: c88b5ee347b8ff5479ccefd22b525b3e,
+    type: 3}
+  trailDiagonalUp: {fileID: 2022172020590042652, guid: f5e2d79e0f1c3a948aa9c07d0279d447,
+    type: 3}
+  renderer: {fileID: 6015590350543163851}
+  startTimeBtwTrails: 0.1
 --- !u!210 &9212403361440140977
 SortingGroup:
   m_ObjectHideFlags: 0

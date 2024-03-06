@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Monster : Interactable
 {
@@ -12,7 +13,7 @@ public class Monster : Interactable
     private static readonly int In = Animator.StringToHash("OpenClose");
     private static readonly int StartAntenna = Animator.StringToHash("StartAntenna");
     private static readonly int StopAntenna = Animator.StringToHash("StopAntenna");
-
+    [SerializeField] private Animator radarAnim;
     public override void Interact()
     {
         if (!_mouthOpen || !hasFlashlight) return;
@@ -21,6 +22,7 @@ public class Monster : Interactable
         hasFlashlight = false;
         _anim.SetBool(HasFlashlight, false);
         radar.SetTrigger(StopAntenna);
+        radarAnim.gameObject.GetComponent<ControlPlayerElectricField>().StopLightning();
     }
 
     private void Start()
@@ -32,10 +34,12 @@ public class Monster : Interactable
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
+        radarAnim = other.GetComponent<Animator>();
         _anim.SetBool(In, true);
         if (hasFlashlight)
         {
             radar.SetTrigger(StartAntenna);
+            other.gameObject.GetComponent<ControlPlayerElectricField>().StartLightning();
         }
     }
     
@@ -46,6 +50,7 @@ public class Monster : Interactable
         if (hasFlashlight)
         {
             radar.SetTrigger(StopAntenna);
+            other.gameObject.GetComponent<ControlPlayerElectricField>().StopLightning();
         }
     }
     

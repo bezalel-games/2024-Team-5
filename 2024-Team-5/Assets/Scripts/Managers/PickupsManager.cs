@@ -59,6 +59,7 @@ public class PickupsManager : MonoBehaviour
         wheels.SetActive(true);
         PlayerMovement.instance.PickUpWheels();
         ObstaclesManager.Instance.DisableRamps();
+        PlayerAnimationsManager.Instance.setWheels();
     }
 
     private void CollectCamera()
