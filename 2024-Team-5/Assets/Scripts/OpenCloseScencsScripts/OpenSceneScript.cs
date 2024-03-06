@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,6 +16,14 @@ public class OpenSceneScript : MonoBehaviour
     private void Start()
     {
         crashVideoDisplay.color = new Color(crashVideoDisplay.color.r, crashVideoDisplay.color.g, crashVideoDisplay.color.b, 0);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
+        {
+            OpenGameScene();
+        }
     }
 
     public void OpenGameScene()
