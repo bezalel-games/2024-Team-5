@@ -11,7 +11,7 @@ public class FirstButtonsShow : MonoBehaviour
     [SerializeField] private GameObject spaceText;
     [SerializeField] private GameObject walkText;
     [SerializeField] private GameObject resetText;
-    private float timeDelay = 5f;
+    private float timeDelay = 15f;
 
     void Update()
     {
