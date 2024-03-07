@@ -6,10 +6,10 @@ public class SwitchableObject : MonoBehaviour
     
     protected void Update()
     {
-        // if (player && Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     Switch();
-        // }
+        if (player && Input.GetKeyDown(KeyCode.Space))
+        {
+            Switch();
+        }
     }
 
     protected virtual void Switch()
