@@ -6,12 +6,13 @@ using UnityEngine;
 public class MouseCollider : MonoBehaviour
 {
     public MouseWithAntenna mouse;
-
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag.Equals("Player"))
         {
             mouse.player = other.gameObject;
+            if (mouse.hasAntenna) other.gameObject.GetComponent<ControlPlayerElectricField>().StartLightning();
         }
     }
     
@@ -20,6 +21,8 @@ public class MouseCollider : MonoBehaviour
         if (other.gameObject.tag.Equals("Player"))
         {
             mouse.player = null;
+            if (mouse.hasAntenna) other.gameObject.GetComponent<ControlPlayerElectricField>().StopLightning();
+
         }
     }
 }

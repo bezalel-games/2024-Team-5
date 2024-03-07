@@ -11,7 +11,15 @@ public class FirstButtonsShow : MonoBehaviour
     [SerializeField] private GameObject spaceText;
     [SerializeField] private GameObject walkText;
     [SerializeField] private GameObject resetText;
-    private float timeDelay = 15f;
+
+    private float timeDelay = 15f; // You might want to remove or adjust this if it's no longer needed
+    private float gameStartTime;
+    private bool resetActivated = false; // To ensure the reset activation happens only once
+
+    void Start()
+    {
+        gameStartTime = Time.time; // Capture the start time of the game
+    }
 
     void Update()
     {
@@ -37,11 +45,14 @@ public class FirstButtonsShow : MonoBehaviour
             StartCoroutine(FadeOutSprite(buttonSpace));
             StartCoroutine(FadeOutSprite(spaceText));
         }
-        if (timeDelay <= 0)
+
+        // New logic to activate the reset text after 20 seconds from the game start
+        if (!resetActivated && Time.time - gameStartTime >= 50f)
         {
-            StartCoroutine(FadeOutSprite(resetText));
+            resetText.SetActive(true); // This activates the resetText object
+            resetActivated = true; // Ensure it doesn't activate more than once
         }
-        timeDelay -= Time.deltaTime;
+        
     }
 
     IEnumerator FadeOutSprite(GameObject target)
