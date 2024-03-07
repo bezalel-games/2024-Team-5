@@ -6,7 +6,6 @@ using UnityEngine;
 public class CaveEnterColider : MonoBehaviour
 
 {
-    [SerializeField] private GameObject caveEnterColliderObject;
     public static CaveEnterColider insatnce;
 
     private void Awake()
@@ -16,6 +15,6 @@ public class CaveEnterColider : MonoBehaviour
 
     public void destroyCaveEnterCollider()
     {
-        Destroy(caveEnterColliderObject);
+        Destroy(this.gameObject);
     }
 }
