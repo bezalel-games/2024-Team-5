@@ -7,6 +7,7 @@ public class WaterBlock : MonoBehaviour
     public GameObject otherCollider;
     private SpriteRenderer _spriteRenderer;
     private EdgeCollider2D _edgeCollider2D;
+    [SerializeField] AudioSource _audioSource;
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -17,6 +18,7 @@ public class WaterBlock : MonoBehaviour
     {
         _edgeCollider2D.enabled = false;
         _spriteRenderer.sprite = filledSprite;
+        _audioSource.Play();
         otherCollider.SetActive(false);
     }
 }
