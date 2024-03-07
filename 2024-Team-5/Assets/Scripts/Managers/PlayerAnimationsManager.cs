@@ -169,7 +169,7 @@ public class PlayerAnimationsManager : MonoBehaviour
                     break;
             }
             var newTrail = Instantiate(trail, transform.position - new Vector3(0,.4f,0), Quaternion.identity);
-            Destroy(newTrail, 0.5f);
+            Destroy(newTrail, 1f);
             timeBtwTrails = startTimeBtwTrails;
         }
         else
