@@ -28,7 +28,7 @@ public class PickupsManager : MonoBehaviour
     {
         // At the moment we start with an arm
         //TODO: HADAR DELETE
-        CollectArm();
+        // CollectArm();
     }
     
 
@@ -70,7 +70,7 @@ public class PickupsManager : MonoBehaviour
     public void CollectLight()
     {
         flashLight.SetActive(true);
-        light2DPickup.SetActive(true);
+        // light2DPickup.SetActive(true);
     }
 
     public void CollectBurner()

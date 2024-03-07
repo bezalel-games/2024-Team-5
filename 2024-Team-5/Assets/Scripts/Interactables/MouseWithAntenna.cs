@@ -8,7 +8,6 @@ public class MouseWithAntenna : SwitchableObject
     [SerializeField] private Transform holder;
     [SerializeField] private Transform path;
     
-    private Sprite[] currentSprites;
     private SpriteRenderer _renderer;
     private float lastX;
     private float lastY;
@@ -22,7 +21,6 @@ public class MouseWithAntenna : SwitchableObject
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        currentSprites = hasAntenna ? beforeSprites : afterSprites;
         _renderer = GetComponentInChildren<SpriteRenderer>();
         lastPosition = holder.transform.position;
         _animator.SetBool(StarParameter,!hasAntenna);
@@ -31,7 +29,7 @@ public class MouseWithAntenna : SwitchableObject
     [ContextMenu("Switch")]
     protected override void Switch()
     {
-        if (!hasAntenna && !PickupsManager.Instance.HasTail()) return;
+        if (!hasAntenna || !PickupsManager.Instance.HasTail()) return;
         Debug.Log("Switched");
         base.Switch();
         _animator.SetBool(StarParameter,true);
