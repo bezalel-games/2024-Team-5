@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -20,11 +18,12 @@ public class AntennaHole : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    [ContextMenu("FillHole")]
     private void FillHole()
     {
         holeRenderer.sprite = filledHoleSprite;
         animator.SetTrigger("Fill");
-        ControlMiceAppearanceScript.Instance.ChangeMiceAppearance();
+        ControlMiceAppearanceScript.Instance.ShowMice();
         Instantiate(burst, bubblePosition.position, quaternion.identity);
     }
     

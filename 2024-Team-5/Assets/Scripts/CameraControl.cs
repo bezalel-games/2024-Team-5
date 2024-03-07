@@ -43,6 +43,5 @@ public class CameraControl : MonoBehaviour
 
         // Ensure the final size is set exactly to zoomSize
         vcam.m_Lens.OrthographicSize = zoomSize;
-        Debug.Log($"vcam.m_Lens.OrthographicSize: {vcam.m_Lens.OrthographicSize}");
     }
 }

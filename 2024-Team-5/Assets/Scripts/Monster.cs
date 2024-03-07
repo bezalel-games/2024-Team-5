@@ -18,7 +18,6 @@ public class Monster : Interactable
     {
         if (!_mouthOpen || !hasFlashlight) return;
         flashlight.SetActive(true);
-        PickupsManager.Instance.CollectLight();
         hasFlashlight = false;
         _anim.SetBool(HasFlashlight, false);
         radar.SetTrigger(StopAntenna);

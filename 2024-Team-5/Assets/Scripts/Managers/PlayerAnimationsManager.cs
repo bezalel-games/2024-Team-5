@@ -168,7 +168,7 @@ public class PlayerAnimationsManager : MonoBehaviour
                     trail = trailUpDown;
                     break;
             }
-            var newTrail = Instantiate(trail, transform.position, Quaternion.identity);
+            var newTrail = Instantiate(trail, transform.position - new Vector3(0,.4f,0), Quaternion.identity);
             Destroy(newTrail, 0.5f);
             timeBtwTrails = startTimeBtwTrails;
         }
