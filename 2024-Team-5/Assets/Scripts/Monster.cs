@@ -17,6 +17,7 @@ public class Monster : Interactable
     public override void Interact()
     {
         if (!_mouthOpen || !hasFlashlight) return;
+        CaveEnterColider.insatnce.destroyCaveEnterCollider();
         flashlight.SetActive(true);
         hasFlashlight = false;
         _anim.SetBool(HasFlashlight, false);
