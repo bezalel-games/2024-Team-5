@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class ControlMiceAppearanceScript : MonoBehaviour
@@ -17,12 +15,5 @@ public class ControlMiceAppearanceScript : MonoBehaviour
     {
         mouses.SetActive(true);
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.K))
-        {
-            // ChangeMiceAppearance();
-        }
-    }
+    
 }

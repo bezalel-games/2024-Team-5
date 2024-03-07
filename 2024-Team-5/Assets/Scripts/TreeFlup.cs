@@ -10,14 +10,5 @@ public class TreeFlup : Interactable
     {
         animator.SetTrigger(Flup);
     }
-    
-    // private void OnCollisionStay2D(Collision2D other)
-    // {
-    //     if (other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Space))
-    //     {
-    //         animator.SetTrigger("Flup");
-    //     }
-    //   
-    // }
-    
+
 }

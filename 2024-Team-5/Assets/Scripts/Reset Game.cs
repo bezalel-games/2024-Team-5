@@ -1,7 +1,5 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement; // Make sure to include this for scene management
-
+using UnityEngine.SceneManagement; 
 public class ResetGame : MonoBehaviour
 {
     private float resetTime = 5f * 60f; // 5 minutes in seconds
