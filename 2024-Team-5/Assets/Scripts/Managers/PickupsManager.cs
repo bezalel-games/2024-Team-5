@@ -28,7 +28,7 @@ public class PickupsManager : MonoBehaviour
     {
         // At the moment we start with an arm
         //TODO: HADAR DELETE
-        // CollectArm();
+        CollectArm();
     }
     
 
