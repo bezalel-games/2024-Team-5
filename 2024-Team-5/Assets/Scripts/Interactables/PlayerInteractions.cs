@@ -31,7 +31,7 @@ public class PlayerInteractions : MonoBehaviour
          new Vector2(checkSize.x, checkSize.y), 0, LayerMask.GetMask("Interactable"));
       if (results.Length == 0) return;
       
-      results[0].GetComponent<Interactable>().Interact();
+      results[0].GetComponent<INteractable>().Interact();
       
    }
    

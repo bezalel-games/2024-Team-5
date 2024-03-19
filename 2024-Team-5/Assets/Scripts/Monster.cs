@@ -1,18 +1,21 @@
 using UnityEngine;
 
-public class Monster : Interactable
+public class Monster : MonoBehaviour, INteractable
 {
     public bool hasFlashlight;
     public GameObject flashlight;
     public Animator radar;
+    public AudioSource openSound;
+    [SerializeField] private Animator radarAnim;
+    
+    
     private bool _mouthOpen;
     private Animator _anim;
     private static readonly int HasFlashlight = Animator.StringToHash("HasFlashlight");
     private static readonly int In = Animator.StringToHash("OpenClose");
     private static readonly int StartAntenna = Animator.StringToHash("StartAntenna");
     private static readonly int StopAntenna = Animator.StringToHash("StopAntenna");
-    [SerializeField] private Animator radarAnim;
-    public override void Interact()
+    public void Interact()
     {
         if (!_mouthOpen || !hasFlashlight) return;
         CaveEnterColider.insatnce.destroyCaveEnterCollider();
@@ -59,4 +62,10 @@ public class Monster : Interactable
     {
         _mouthOpen = state == 1;
     }
+    
+    public void PlayOpenSound()
+    {
+        openSound.Play();
+    }
+    
 }

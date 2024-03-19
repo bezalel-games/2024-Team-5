@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Plant : Interactable
+public class Plant : MonoBehaviour, INteractable
 {
     private static readonly int InteractParam = Animator.StringToHash("Interact");
     private static readonly int Dark = Animator.StringToHash("Dark");
@@ -24,7 +24,7 @@ public class Plant : Interactable
         StartCoroutine(StartAnimation());
     }
 
-    public override void Interact()
+    public void Interact()
     {
         spriteRenderer.sprite = floatingSprite;
         _col.enabled = false;
