@@ -29,7 +29,6 @@ public class SoundManager : MonoBehaviour
         }
         gameWhiteNoiseAudioSource.volume = 0;
         
-        //StartCoroutine(WaitAndPlaySound());
     }
     
     public void DisableSound()
@@ -38,17 +37,9 @@ public class SoundManager : MonoBehaviour
         {
             gameObjectsAudioSources[i].GetComponent<AudioSource>().volume = 0;
         }
-        gameWhiteNoiseAudioSource.volume = 0.7f;
+        gameWhiteNoiseAudioSource.volume = 0.1f;
     }
     
-    //private IEnumerator WaitAndPlaySound()
-    //{
-        //yield return new WaitForSeconds(thunderWaitTime);
-        //rainSoundtrack.Play();
-        
-        //yield return new WaitForSeconds(thunderWaitTime);
-        
-    //}
     
     public void PlayConnectSound()
     {

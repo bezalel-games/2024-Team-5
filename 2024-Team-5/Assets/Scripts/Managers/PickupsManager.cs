@@ -23,15 +23,7 @@ public class PickupsManager : MonoBehaviour
     {
         Instance = Instance == null ? this : Instance;
     }
-
-    private void Start()
-    {
-        // At the moment we start with an arm
-        //TODO: HADAR DELETE
-        // CollectArm();
-    }
     
-
     public void CollectObject(GameObject obj)
     {
         switch (obj.name.Replace("PickUp",""))
@@ -70,7 +62,6 @@ public class PickupsManager : MonoBehaviour
     public void CollectLight()
     {
         flashLight.SetActive(true);
-        // light2DPickup.SetActive(true);
     }
 
     public void CollectBurner()
