@@ -9,10 +9,11 @@ public class TeleportPlayerToFromCave : MonoBehaviour
     [SerializeField] private GameObject ExitCaveObject;
     [SerializeField] private Light2D gameLight;
     [SerializeField] private float transitionDuration = 1f;
-    [SerializeField] private float delayDurationAfterTurnBlack = 0.7f; // 1 second delay
+    [SerializeField] private float delayDurationAfterTurnBlack = 0.7f;
     [SerializeField] float caveLightIntensity = 0.00f;
     [SerializeField] private GameObject PlayerLight;
     [SerializeField] private GameObject light;
+    
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -34,19 +35,20 @@ public class TeleportPlayerToFromCave : MonoBehaviour
             gameLight.intensity = Mathf.Lerp(startIntensity, 0f, elapsedTime / transitionDuration);
             yield return null;
         }
-        
+
         // Teleport the player
         inCave = !inCave;
         playerTransform.position = inCave ? ExitCaveObject.transform.position : EnterCaveObject.transform.position;
-        
+
         // Wait for 1 second with intensity 0
         yield return new WaitForSeconds(delayDurationAfterTurnBlack);
 
         if (inCave)
         {
+            SwitchCaveGameSound.Instance.SwitchCaveGameSounds();
             // Fade in the light
             elapsedTime = 0f;
-            while (gameLight.intensity<caveLightIntensity)
+            while (gameLight.intensity < caveLightIntensity)
             {
                 elapsedTime += Time.deltaTime;
                 gameLight.intensity = Mathf.Lerp(0f, startIntensity, elapsedTime / transitionDuration);
@@ -55,12 +57,12 @@ public class TeleportPlayerToFromCave : MonoBehaviour
 
             if (PlayerLight.activeSelf)
             {
-                light.SetActive(true);  
+                light.SetActive(true);
             }
-            
         }
         else
         {
+            SwitchCaveGameSound.Instance.SwitchCaveGameSounds();
             elapsedTime = 0f;
             while (elapsedTime < transitionDuration)
             {
@@ -68,13 +70,14 @@ public class TeleportPlayerToFromCave : MonoBehaviour
                 gameLight.intensity = Mathf.Lerp(0f, 1, elapsedTime / transitionDuration);
                 yield return null;
             }
+
             gameLight.intensity = 1; // Ensure light intensity is back to original value
             if (PlayerLight.activeSelf)
             {
                 light.SetActive(false);
             }
         }
-        PlayerMovement.instance.EnableMove();
 
+        PlayerMovement.instance.EnableMove();
     }
 }
