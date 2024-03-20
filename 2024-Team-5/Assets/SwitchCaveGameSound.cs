@@ -18,7 +18,6 @@ public class SwitchCaveGameSound : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
