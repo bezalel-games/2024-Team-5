@@ -23,6 +23,7 @@ public class Hole : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.GetComponent<MovableRock>()) return;
+        if(other.GetComponent<MovableWaterRock>()) return;
         FillHole();
         audioSource.Play();
         bubbles.Burst();
