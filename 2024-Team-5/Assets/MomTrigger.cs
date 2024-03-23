@@ -13,15 +13,14 @@ public class MomTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            mom.gameObject.SetActive(true);
-            StartCoroutine(PlayMomAnimation(16.667f));
+            mom.GetComponent<Animator>().SetTrigger("Play");
         }
     }
 
-    private IEnumerator PlayMomAnimation(float duration)
-    {
-        yield return new WaitForSeconds(duration);
-        mom.gameObject.SetActive(false);
-        gameObject.SetActive(false);
-    }
+    // private IEnumerator PlayMomAnimation(float duration)
+    // {
+    //     yield return new WaitForSeconds(duration);
+    //     mom.gameObject.SetActive(false);
+    //     gameObject.SetActive(false);
+    // }
 }
